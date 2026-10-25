@@ -728,9 +728,17 @@
                     </div>
 
                     <div class="p-4 rounded-2xl bg-[#F3FAF0] border-2 border-[#3E3A39] space-y-1">
-                        <p class="font-black text-sm text-[#3E3A39] flex items-center gap-1.5">
-                            <span>🚝</span> 後期市區單軌 24 小時券
-                        </p>
+                        <div class="flex items-center justify-between flex-wrap gap-1">
+                            <p class="font-black text-sm text-[#3E3A39] flex items-center gap-1.5">
+                                <span>🚝</span> 後期市區單軌 24 小時券
+                            </p>
+                            <a href="https://www.yui-rail.co.jp/routemap/" target="_blank" rel="noopener noreferrer"
+                               title="查看 Yui Rail 官方路線圖"
+                               class="inline-flex items-center gap-1 text-xs font-black text-[#0284C7] hover:underline bg-white px-2 py-0.5 rounded-lg border border-[#3E3A39]/30">
+                                <span>🗺️ 路線圖</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
                         <p class="text-xs font-bold text-slate-600 leading-relaxed">
                             1/28 傍晚還車後進入市區，善用 Yui Rail 單軌電車（從首次刷卡起算 24 小時有效，大人 800 日圓），輕鬆省下交通費。
                         </p>
@@ -1200,30 +1208,103 @@
                         </div>
 
                         <!-- 行程節點 2 -->
-                        <div class="ehon-card p-6 space-y-3">
+                        <div class="ehon-card p-6 space-y-4">
                             <div class="flex items-center justify-between flex-wrap gap-2">
                                 <div class="flex items-center gap-2">
                                     <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
-                                    <h3 class="text-lg font-black text-[#3E3A39]">AEON MALL 沖繩來客夢 (Rycom) 全日暢購與晚餐</h3>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">AEON MALL 沖繩來客夢 (Rycom) 全日暢購與美食</h3>
                                 </div>
                                 <div class="flex items-center gap-2 flex-wrap">
+                                    <a href="https://okinawarycom.aeonmall.jp/" target="_blank" rel="noopener noreferrer"
+                                       title="前往 AEON MALL 官方網站"
+                                       class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#3E3A39] text-xs font-black shadow-[1.5px_1.5px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                        <span>官網</span>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                    </a>
                                     <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-22:00 ｜ 超市 07:00-23:00</span>
                                     <span class="mapcode-badge">MapCode: 33 530 406*45</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=イオンモール沖縄ライカム" target="_blank" rel="noopener noreferrer"
-   title="Google 導航" aria-label="Google 導航"
-   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
-    <i class="fa-solid fa-location-dot"></i>
-</a>
+                                       title="Google 導航" aria-label="Google 導航"
+                                       class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </a>
                                 </div>
                             </div>
                             <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
                                 沖繩規模最大、品牌最齊全的旗艦級巨型購物中心！擁有超過 200 間專門店。1樓中庭矗立著 100 噸的巨型海水熱帶水族箱「Rycom Aquarium」，是拍照打卡亮點。
                             </p>
-                            <div class="p-4 bg-[#FFFBEB] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 space-y-1.5">
-                                <p class="text-[#3E3A39] font-black">🛍️ 必逛專櫃與推薦：</p>
-                                <p>• <span class="text-[#3E3A39] font-black">潮流流行</span>：UNIQLO、GU、Bic Camera 電器行、GAP、H&M、Mont-bell 戶外登山用品。</p>
-                                <p>• <span class="text-[#3E3A39] font-black">親子動漫</span>：寶可夢專賣店 (Pokemon Center Okinawa)、玩具反斗城、橡子共和國 (吉卜力)。</p>
-                                <p>• 美食街集合沖繩蕎麥麵、牛排、拉麵、牛角燒肉等各國美食，吃飽喝足開車回美國村飯店。</p>
+
+                            <!-- 外國遊客換券優惠 -->
+                            <div class="p-3.5 bg-[#FEF3C7] rounded-2xl border-2 border-[#3E3A39] shadow-[2px_2px_0px_#3E3A39] space-y-1">
+                                <div class="flex items-center gap-1.5 text-xs font-black text-[#92400E]">
+                                    <span class="text-sm">🎟️</span> 外國遊客開逛前必去：1F 遊客中心兌換優惠券！
+                                </div>
+                                <p class="text-xs font-bold text-slate-700 leading-relaxed">
+                                    出示護照＆優惠券 QR Code，即可獲得永旺夢樂城「<span class="text-[#D97706] font-black">滿 5,500 日圓折 500 日圓折價券</span>」或「<span class="text-[#3E3A39] font-black">驚喜小禮物</span>」二選一。
+                                </p>
+                            </div>
+
+                            <!-- 樓層重點必逛導覽 -->
+                            <div class="space-y-2">
+                                <p class="text-xs font-black text-[#3E3A39] flex items-center gap-1.5">
+                                    <span>🗺️</span> 重點鎖定必逛專櫃（1F ~ 4F）：
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-bold text-slate-700">
+                                    <div class="p-3 bg-[#FFF3F0] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                        <span class="ehon-badge bg-[#F2A497] text-[11px]">1F 潮流動漫＆生活藥妝</span>
+                                        <p class="pt-0.5 leading-relaxed text-slate-800">
+                                            • Pokémon Center (寶可夢中心)<br>
+                                            • LOFT、3 Coin+plus、GU、UNIQLO<br>
+                                            • DAISO 大創、KOJIMA x BIC CAMERA 藥妝
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-[#FFFBEB] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                        <span class="ehon-badge bg-[#F6D27A] text-[11px]">2F 戶外休閒＆生鮮超市</span>
+                                        <p class="pt-0.5 leading-relaxed text-slate-800">
+                                            • mont-bell 登山機能服飾<br>
+                                            • GLOBAL WORK、X-girl、BAYFLOW<br>
+                                            • PLAZA 美妝選物、MEGA SPORT<br>
+                                            • AEON STYLE 大型超市 (伴手禮補貨)
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-[#F0F8FC] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                        <span class="ehon-badge bg-[#A8D3E6] text-[11px]">3F 文具生活＆3C家電</span>
+                                        <p class="pt-0.5 leading-relaxed text-slate-800">
+                                            • AEON STYLE 文具筆記事務用品<br>
+                                            • KOJIMA x BIC CAMERA 電器 (生活家電/吹風機)
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-[#F3FAF0] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                        <span class="ehon-badge bg-[#B9DAA5] text-[11px]">4F 親子童裝＆扭蛋天堂</span>
+                                        <p class="pt-0.5 leading-relaxed text-slate-800">
+                                            • BREEZE、apres les cours 日系童裝<br>
+                                            • RIGHT ON、TOYSRUS 玩具反斗城<br>
+                                            • AEON STYLE 玩具區<br>
+                                            • ガチャガチャの森(扭蛋之森)、Dream Capsule
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 人氣美食推薦 -->
+                            <div class="bg-[#FFFDF7] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1.5">
+                                <p class="text-[#3E3A39] font-black flex items-center gap-1.5">
+                                    <span>🍴</span> 人氣餐廳推薦（午餐／晚餐首選）：
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-0.5">
+                                    <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                        <span class="text-[#3E3A39] font-black">🍲 しゃぶしゃぶ美山 (2F)</span>
+                                        <p class="text-slate-600 text-[11px]">Miyama 日式涮涮鍋與鮮蔬吃到飽</p>
+                                    </div>
+                                    <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                        <span class="text-[#3E3A39] font-black">🥩 焼肉なべしま (5F)</span>
+                                        <p class="text-slate-600 text-[11px]">九州人氣黑毛和牛燒肉</p>
+                                    </div>
+                                    <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                        <span class="text-[#3E3A39] font-black">🍔 A&W 美式漢堡 (4F)</span>
+                                        <p class="text-slate-600 text-[11px]">4 樓美食街現烤漢堡與麥根沙士</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1505,31 +1586,101 @@
                             <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
                                 結合沉浸式影像音效與真實生態的新形態水族館！站在全透明的強化玻璃地板上方，俯瞰大型水槽中鯊魚從腳下悠游；展區內還可近距離觀察可愛的樹懶、水豚、企鵝與巨嘴鳥。
                             </p>
-                            <div class="p-3 bg-[#F0F8FC] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700">
-                                🚌 交通方式：從那霸旭橋巴士總站（那霸公車總站）搭乘直達路線公車（約 30 分鐘）直達「iias 沖繩豐崎」正門下車即可。
+                            <div class="p-3 bg-[#F0F8FC] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 space-y-1">
+                                <p>🚌 交通方式：從那霸旭橋巴士總站（那霸公車總站）搭乘直達路線公車（約 30 分鐘）直達「iias 沖繩豐崎」正門下車即可。</p>
+                                <p class="text-[#0284C7] font-black flex items-center gap-1.5 pt-0.5">
+                                    <i class="fa-solid fa-circle-info"></i> 入館備註：DMM Kariyushi 水族館入口在 2 樓（請從 iias 商場 2 樓連通口購票入館）！
+                                </p>
                             </div>
                         </div>
 
                         <!-- 行程節點 2 -->
-                        <div class="ehon-card p-6 space-y-3">
+                        <div class="ehon-card p-6 space-y-4">
                             <div class="flex items-center justify-between flex-wrap gap-2">
                                 <div class="flex items-center gap-2">
                                     <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
-                                    <h3 class="text-lg font-black text-[#3E3A39]">iias 沖繩豐崎 (iias Okinawa Toyosaki) 商場散步</h3>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">iias 沖繩豐崎 (iias Okinawa Toyosaki) 海濱暢購與美食</h3>
                                 </div>
                                 <div class="flex items-center gap-2 flex-wrap">
+                                    <a href="https://toyosaki.iias.jp/" target="_blank" rel="noopener noreferrer"
+                                       title="前往 iias 沖繩豐崎官方網站"
+                                       class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#3E3A39] text-xs font-black shadow-[1.5px_1.5px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                        <span>官網</span>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                    </a>
                                     <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-21:00 ｜ 餐廳至 22:00</span>
                                     <span class="text-xs font-black bg-[#FFFBEB] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">下午 / 傍晚</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=イーアス沖縄豊崎" target="_blank" rel="noopener noreferrer"
-   title="商場導航" aria-label="商場導航"
-   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
-    <i class="fa-solid fa-location-dot"></i>
-</a>
+                                       title="商場導航" aria-label="商場導航"
+                                       class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </a>
                                 </div>
                             </div>
                             <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
-                                與 DMM 水族館無縫直通的濱海大型購物中心！頂樓設有景觀燒烤露台，旁邊是豐崎美麗 SUN 海灘。商場內有 KOJIMA x Bic Camera 家電、各式日系生活雜貨、伴手禮店與豐富美食街。
+                                與 DMM 水族館無縫直通的濱海大型購物中心（※ DMM 水族館入口位於 2 樓）！頂樓設有景觀燒烤露台，旁邊是豐崎美麗 SUN 海灘。匯集超過 150 家店鋪，兼具海景夕陽露台、日系家電、親子母嬰與豐富美食街。
                             </p>
+
+                            <!-- 樓層重點必逛導覽 -->
+                            <div class="space-y-2">
+                                <p class="text-xs font-black text-[#3E3A39] flex items-center gap-1.5">
+                                    <span>🗺️</span> 重點鎖定必逛專櫃（1F ~ 3F）：
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-bold text-slate-700">
+                                    <div class="p-3 bg-[#FFF3F0] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                        <span class="ehon-badge bg-[#F2A497] text-[11px]">1F 家電運動＆扭蛋</span>
+                                        <p class="pt-0.5 leading-relaxed text-slate-800">
+                                            • KOJIMA x BIC CAMERA (生活家電)<br>
+                                            • DAISO (大創百圓生活百貨)<br>
+                                            • SUPER SPORTS XEBIO (大型運動戶外)<br>
+                                            • TOY GACHA (扭蛋專區)
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-[#FFFBEB] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                        <span class="ehon-badge bg-[#F6D27A] text-[11px]">2F 潮流服飾＆鞋履</span>
+                                        <p class="pt-0.5 leading-relaxed text-slate-800">
+                                            • UNIQLO (大型旗艦休閒服飾)<br>
+                                            • ABC MARKET (運動波鞋與休閒鞋履)<br>
+                                            <span class="text-[11px] text-[#0284C7] font-black bg-[#E0F2FE] px-2 py-0.5 rounded border border-[#0284C7]/30 inline-block mt-1">※ DMM Kariyushi 水族館入口在 2 樓</span>
+                                        </p>
+                                    </div>
+                                    <div class="p-3 bg-[#F0F8FC] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                        <span class="ehon-badge bg-[#A8D3E6] text-[11px]">3F 文具生活・扭蛋＆母嬰</span>
+                                        <p class="pt-0.5 leading-relaxed text-slate-800">
+                                            • LOFT (日系文具生活雜貨美妝)<br>
+                                            • GU (平價時尚休閒日服)<br>
+                                            • Gashapon Bandai Official Shop (萬代官方扭蛋店)<br>
+                                            • RIGHT ON (美式休閒丹寧)<br>
+                                            • 西松屋 (嬰幼兒童裝母嬰用品)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 特色美食推薦 -->
+                            <div class="bg-[#FFFDF7] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1.5">
+                                <p class="text-[#3E3A39] font-black flex items-center gap-1.5">
+                                    <span>🍴</span> 特色必吃人氣餐廳推薦：
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 pt-0.5">
+                                    <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                        <span class="text-[#3E3A39] font-black">🍜 博多一幸舍 (1F)：</span>
+                                        <p class="text-slate-600 text-[11px]">經典博多豚骨拉麵，醇厚白湯與極細麵條。</p>
+                                    </div>
+                                    <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                        <span class="text-[#3E3A39] font-black">🥚 鳥玉 (1F)：</span>
+                                        <p class="text-slate-600 text-[11px]">沖繩超人氣在地雞蛋料理，滑嫩厚玉子燒與定食。</p>
+                                    </div>
+                                    <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                        <span class="text-[#3E3A39] font-black">🍔 A&W 美式漢堡 (1F)：</span>
+                                        <p class="text-slate-600 text-[11px]">沖繩經典現烤漢堡，必配冰沁招牌麥根沙士。</p>
+                                    </div>
+                                    <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                        <span class="text-[#3E3A39] font-black">🍱 さち福や CAFE (3F)：</span>
+                                        <p class="text-slate-600 text-[11px]">日式家庭料理定食、釜鍋現煮白飯與咖啡甜點。</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1548,8 +1699,13 @@
                                     <span>首里城公園 (世界遺產正殿見學) ➔ 西來院達摩寺 (祈願開運) ➔ 奧武山公園・沖宮 (琉球八社/天燈山) ➔ 那霸國際通 (傍晚掃貨與居酒屋晚餐) ➔ 宿那霸</span>
                                 </p>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <span class="bg-white border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🚝 單軌一日暢遊</span>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <a href="https://www.yui-rail.co.jp/routemap/" target="_blank" rel="noopener noreferrer"
+                                   title="點擊查看 Yui Rail 單軌路線圖"
+                                   class="inline-flex items-center gap-1.5 bg-[#FFFBEB] hover:bg-[#F6D27A] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                    <span>🚝 單軌一日暢遊 (路線圖)</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
                                 <span class="bg-[#B9DAA5] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🏨 宿那霸飯店</span>
                             </div>
                         </div>
@@ -1627,6 +1783,11 @@
    title="奧武山公園導航" aria-label="奧武山公園導航"
    class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#F3FAF0] hover:bg-[#B9DAA5] text-[#059669] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
     <i class="fa-solid fa-tree"></i>
+</a>
+                                    <a href="https://www.yui-rail.co.jp/routemap/" target="_blank" rel="noopener noreferrer"
+   title="Yui Rail 單軌路線圖 (首里➔壺川/奧武山公園)" aria-label="Yui Rail 單軌路線圖"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#F0F8FC] hover:bg-[#A8D3E6] text-[#0284C7] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-train-subway"></i>
 </a>
                                 </div>
                             </div>
@@ -1927,15 +2088,54 @@
                     </ul>
                 </div>
 
-                <div class="ehon-card p-6 bg-[#F0F8FC] space-y-3">
-                    <h4 class="font-black text-base text-[#3E3A39] flex items-center gap-2">
-                        <span>🚝</span> 那霸單軌電車 (Yui Rail) 乘車守則
-                    </h4>
+                <div class="ehon-card p-6 bg-[#F0F8FC] space-y-4">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h4 class="font-black text-base text-[#3E3A39] flex items-center gap-2">
+                            <span>🚝</span> 那霸單軌電車 (Yui Rail) 乘車守則
+                        </h4>
+                        <div class="flex items-center gap-2">
+                            <a href="https://www.yui-rail.co.jp/routemap/" target="_blank" rel="noopener noreferrer"
+                               title="前往 Yui Rail 官方路線圖"
+                               class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#3E3A39] text-xs font-black shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                <span>🗺️ 官方路線圖</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                            <a href="https://www.yui-rail.co.jp/common/uploads/routemap_pc_jp-2.jpg" target="_blank" rel="noopener noreferrer"
+                               title="查看高解析度路線圖原圖"
+                               class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl border-2 border-[#3E3A39] bg-white hover:bg-[#E0F2FE] text-[#0284C7] text-xs font-black shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                <span>🔍 高清大圖</span>
+                                <i class="fa-solid fa-image text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
                     <ul class="list-disc list-inside text-xs font-bold text-slate-700 space-y-2">
-                        <li><span class="text-[#3E3A39] font-black">營運路線</span>：貫穿那霸機場 ➔ 赤嶺 ➔ 旭橋 ➔ 縣廳前 (國際通) ➔ 牧志 ➔ おもろまち (新都心) ➔ 首里 ➔ 浦添前田。</li>
+                        <li><span class="text-[#3E3A39] font-black">營運路線</span>：貫穿那霸機場 ➔ 赤嶺 ➔ 小祿 ➔ 奧武山公園／壺川 (沖宮) ➔ 旭橋 ➔ 縣廳前 (國際通) ➔ 牧志 ➔ おもろまち (新都心) ➔ 首里 ➔ 浦添前田。</li>
                         <li><span class="text-[#3E3A39] font-black">一日券超划算</span>：成人 800 日圓 / 兒童 400 日圓，從購票刷卡起算 <span class="text-[#3E3A39] font-black underline">完整 24 小時</span> 有效，搭 3~4 次即回本！</li>
                         <li><span class="text-[#3E3A39] font-black">支援交通 IC 卡</span>：可直接感應 Suica (西瓜卡)、ICOCA，免去排隊買票。</li>
                     </ul>
+
+                    <!-- 沖繩單軌電車路線圖視覺預覽卡片 -->
+                    <div class="p-3 bg-white rounded-2xl border-2 border-[#3E3A39] shadow-[2px_2px_0px_#3E3A39] space-y-2">
+                        <div class="flex items-center justify-between flex-wrap gap-2 text-xs font-black text-[#3E3A39]">
+                            <span class="flex items-center gap-1.5">
+                                <span>📍</span> Yui Rail 路線圖預覽（點擊查看高清大圖）
+                            </span>
+                            <span class="text-[11px] text-slate-500 font-bold">全線共 19 站</span>
+                        </div>
+                        <a href="https://www.yui-rail.co.jp/common/uploads/routemap_pc_jp-2.jpg" target="_blank" rel="noopener noreferrer"
+                           title="點擊在新視窗開啟高解析度路線圖原圖"
+                           class="block group relative overflow-hidden rounded-xl border-2 border-[#3E3A39] hover:shadow-[3px_3px_0px_#3E3A39] transition-all bg-[#F8FAFC]">
+                            <img src="https://www.yui-rail.co.jp/common/uploads/routemap_pc_jp-2.jpg"
+                                 alt="沖繩單軌電車 Yui Rail 路線圖"
+                                 class="w-full h-auto max-h-48 object-cover object-center group-hover:scale-[1.03] transition-transform duration-300"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span class="bg-[#FFFCF6] text-[#3E3A39] border-2 border-[#3E3A39] font-black text-xs px-3.5 py-1.5 rounded-xl shadow-[2px_2px_0px_#3E3A39] flex items-center gap-1.5">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i> 開啟高清路線圖原圖
+                                </span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1949,92 +2149,398 @@
                     <span>🛍️</span> 沖繩商場與在地美食私房指南
                 </h2>
                 <p class="text-xs sm:text-sm font-bold text-[#3E3A39] mt-1">
-                    精選 AEON MALL 來客夢、PARCO CITY、美國村與國際通精華攻略
+                    精選北谷美國村、AEON MALL 來客夢、PARCO CITY、iias 沖繩豐崎與國際通 5 大商圈攻略
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- AEON MALL 沖繩來客夢 -->
-                <div class="ehon-card p-6 bg-white space-y-4">
-                    <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-lg font-black text-[#3E3A39]">🏢 AEON MALL 沖繩來客夢</h3>
-                        <div class="flex items-center gap-2">
-                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-22:00</span>
-                            <span class="ehon-badge bg-[#F6D27A]">全沖繩最大</span>
-                        </div>
+            <!-- 自動排序、搬移與快速導航控制工具列 -->
+            <div class="space-y-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#FFFDF7] p-4 rounded-2xl border-[3px] border-[#3E3A39] shadow-[3px_3px_0px_#3E3A39]">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-xs font-black bg-[#F6D27A] border-2 border-[#3E3A39] px-2.5 py-1 rounded-xl">
+                            ✨ 可自動搬移功能
+                        </span>
+                        <span class="text-xs font-bold text-slate-700">
+                            點擊卡片右上角 <span class="text-[#3E3A39] font-black">⬆️ 上移 / ⬇️ 下移</span> 或 <span class="text-[#3E3A39] font-black">拖曳手柄</span> 即可自由調動順序，並自動儲存！
+                        </span>
                     </div>
-                    <p class="text-xs font-bold text-slate-600 leading-relaxed">
-                        擁有大型熱帶水槽與 200 多家專櫃。戶外露台綠意盎然，是全家購物首選！
-                    </p>
-                    <div class="bg-[#FFFBEB] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1">
-                        <p class="text-[#3E3A39] font-black">必逛品牌陣容：</p>
-                        <p>• 1F：大型水族箱、Bic Camera 電器量販、橡子共和國</p>
-                        <p>• 2F：Pokemon Center Okinawa (沖繩限定皮卡丘)、H&M、GAP</p>
-                        <p>• 3F：UNIQLO、GU、生活雜貨、兒童玩具反斗城</p>
-                        <p>• 4F：戶外露營用品 Mont-bell、美食街 (Rycom Gourmet World)</p>
-                    </div>
-                </div>
-
-                <!-- 浦添 PARCO CITY -->
-                <div class="ehon-card p-6 bg-white space-y-4">
-                    <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-lg font-black text-[#3E3A39]">🏢 浦添西海岸 PARCO CITY</h3>
-                        <div class="flex items-center gap-2">
-                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-22:00</span>
-                            <span class="ehon-badge bg-[#A8D3E6]">海景購物</span>
-                        </div>
-                    </div>
-                    <p class="text-xs font-bold text-slate-600 leading-relaxed">
-                        坐擁無敵海景的最新型大型商場，集結超多初次登陸沖繩的日系人氣品牌與餐廳！
-                    </p>
-                    <div class="bg-[#F0F8FC] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1">
-                        <p class="text-[#3E3A39] font-black">必逛亮點精選：</p>
-                        <p>• 全沖繩最大「無印良品 MUJI」旗艦店（含刺繡服務與生鮮品）</p>
-                        <p>• Loft 文具生活雜貨、3COINS+plus</p>
-                        <p>• 2F 海景美食街（一邊享用敘敘苑燒肉便當、拉麵，一邊看海）</p>
-                        <p>• 3F 潮流服飾與電影院棟</p>
+                    <div class="flex items-center gap-2 flex-wrap shrink-0">
+                        <button onclick="autoSortDefaultShopping()"
+                            title="自動以平滑動態依序搬移還原為指定順序"
+                            class="ehon-btn px-3.5 py-1.5 bg-[#FFFBEB] hover:bg-[#F6D27A] text-xs font-black text-[#3E3A39] flex items-center gap-1.5 shadow-[2px_2px_0px_#3E3A39]">
+                            <i class="fa-solid fa-arrow-rotate-right"></i>
+                            <span>自動還原指定順序</span>
+                        </button>
+                        <button onclick="autoScrollShoppingNext()"
+                            title="自動平滑滾動瀏覽下一間商場卡片"
+                            class="ehon-btn px-3.5 py-1.5 bg-[#F0F8FC] hover:bg-[#A8D3E6] text-xs font-black text-[#0284C7] flex items-center gap-1.5 shadow-[2px_2px_0px_#3E3A39]">
+                            <i class="fa-solid fa-angles-down"></i>
+                            <span>依序自動導覽</span>
+                        </button>
                     </div>
                 </div>
 
-                <!-- 美國村 -->
-                <div class="ehon-card p-6 bg-white space-y-4">
-                    <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-lg font-black text-[#3E3A39]">🎡 北谷美國村 (American Village)</h3>
+                <!-- 快速聚焦商場按鈕列 -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide text-xs font-black">
+                    <span class="text-slate-500 shrink-0 flex items-center gap-1">
+                        <i class="fa-solid fa-bolt text-[#D97706]"></i> 快速定位：
+                    </span>
+                    <button onclick="scrollToShoppingCard('american-village')" class="shrink-0 px-3 py-1.5 rounded-xl border-2 border-[#3E3A39] bg-white hover:bg-[#F2A497] shadow-[1.5px_1.5px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">🎡 美國村</button>
+                    <button onclick="scrollToShoppingCard('rycom')" class="shrink-0 px-3 py-1.5 rounded-xl border-2 border-[#3E3A39] bg-white hover:bg-[#F6D27A] shadow-[1.5px_1.5px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">🏢 來客夢</button>
+                    <button onclick="scrollToShoppingCard('parco-city')" class="shrink-0 px-3 py-1.5 rounded-xl border-2 border-[#3E3A39] bg-white hover:bg-[#A8D3E6] shadow-[1.5px_1.5px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">🏢 PARCO CITY</button>
+                    <button onclick="scrollToShoppingCard('iias-toyosaki')" class="shrink-0 px-3 py-1.5 rounded-xl border-2 border-[#3E3A39] bg-white hover:bg-[#B9DAA5] shadow-[1.5px_1.5px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">🌊 iias 豐崎</button>
+                    <button onclick="scrollToShoppingCard('kokusai-dori')" class="shrink-0 px-3 py-1.5 rounded-xl border-2 border-[#3E3A39] bg-white hover:bg-[#F6D27A] shadow-[1.5px_1.5px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">🌴 國際通</button>
+                </div>
+            </div>
+
+            <div id="shopping-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- 1. 北谷美國村 (American Village) -->
+                <div class="ehon-card ehon-shopping-card p-6 bg-white space-y-4 transition-all duration-300 relative" data-id="american-village">
+                    <div class="flex items-center justify-between flex-wrap gap-2 border-b-2 border-dashed border-[#D3CEC4] pb-3">
                         <div class="flex items-center gap-2">
+                            <span class="shopping-order-badge ehon-badge bg-[#F2A497] font-black text-xs text-[#3E3A39]">#1</span>
+                            <h3 class="text-lg font-black text-[#3E3A39]">🎡 北谷美國村 (American Village)</h3>
+                        </div>
+                        <div class="flex items-center gap-1.5 flex-wrap">
                             <span class="time-badge"><i class="fa-regular fa-clock"></i> 店家約 10:00-22:00</span>
                             <span class="ehon-badge bg-[#F2A497]">異國夕陽</span>
+                            <a href="https://www.google.com/maps/search/?api=1&query=美浜アメリカンビレッジ" target="_blank" rel="noopener noreferrer"
+                               title="美國村 Google 導航" aria-label="美國村 Google 導航"
+                               class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </a>
+                            <div class="flex items-center gap-1 bg-[#FFFDF7] px-1.5 py-1 rounded-xl border-2 border-[#3E3A39] shadow-[1.5px_1.5px_0px_#3E3A39]">
+                                <button onclick="moveShoppingCard('american-village', -1)" title="向前/上搬移" aria-label="向前搬移" class="w-6 h-6 rounded-lg hover:bg-[#F6D27A] border border-[#3E3A39]/30 flex items-center justify-center text-xs font-black text-[#3E3A39] active:scale-90 transition-all">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                </button>
+                                <button onclick="moveShoppingCard('american-village', 1)" title="向後/下搬移" aria-label="向後搬移" class="w-6 h-6 rounded-lg hover:bg-[#F6D27A] border border-[#3E3A39]/30 flex items-center justify-center text-xs font-black text-[#3E3A39] active:scale-90 transition-all">
+                                    <i class="fa-solid fa-arrow-down"></i>
+                                </button>
+                                <span class="cursor-grab active:cursor-grabbing text-xs text-slate-400 hover:text-[#3E3A39] px-1 drag-handle" title="按住可拖曳搬移">
+                                    <i class="fa-solid fa-grip-vertical"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <p class="text-xs font-bold text-slate-600 leading-relaxed">
-                        色彩繽紛的美式街區，落日海灘被譽為沖繩落日第一景。傍晚街燈點亮後極為浪漫。
+                        色彩繽紛的美式街區，落日海灘被譽為沖繩落日第一景。傍晚街燈點亮後極為浪漫，是中繼打卡、散步與品嚐異國美食首選！
                     </p>
                     <div class="bg-[#FFF3F0] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1">
-                        <p class="text-[#3E3A39] font-black">不可錯過美食：</p>
+                        <p class="text-[#3E3A39] font-black">不可錯過美食與特色店鋪：</p>
                         <p>• <span class="text-[#3E3A39] font-black">グルメ迴轉壽司市場</span>：極受歡迎的平價排隊握壽司名店</p>
                         <p>• <span class="text-[#3E3A39] font-black">Chatan Burger Shop</span>：多汁厚實炭烤美式漢堡</p>
                         <p>• <span class="text-[#3E3A39] font-black">ZHYVAGO COFFEE WORKS</span>：海景第一排文青手沖咖啡</p>
                     </div>
                 </div>
 
-                <!-- 國際通 -->
-                <div class="ehon-card p-6 bg-white space-y-4">
-                    <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-lg font-black text-[#3E3A39]">🌴 那霸國際通 (Kokusai Dori)</h3>
+                <!-- 2. AEON MALL 沖繩來客夢 -->
+                <div class="ehon-card ehon-shopping-card p-6 bg-white space-y-4 transition-all duration-300 relative" data-id="rycom">
+                    <div class="flex items-center justify-between flex-wrap gap-2 border-b-2 border-dashed border-[#D3CEC4] pb-3">
                         <div class="flex items-center gap-2">
-                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 街區約 10:00-22:00</span>
-                            <span class="ehon-badge bg-[#B9DAA5]">奇蹟一哩</span>
+                            <span class="shopping-order-badge ehon-badge bg-[#F6D27A] font-black text-xs text-[#3E3A39]">#2</span>
+                            <h3 class="text-lg font-black text-[#3E3A39]">🏢 AEON MALL 沖繩來客夢</h3>
+                        </div>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <a href="https://okinawarycom.aeonmall.jp/" target="_blank" rel="noopener noreferrer"
+                               title="前往 AEON MALL 官方網站"
+                               class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#3E3A39] text-xs font-black shadow-[1.5px_1.5px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                <span>官網</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-22:00</span>
+                            <span class="ehon-badge bg-[#F6D27A]">全沖繩最大</span>
+                            <a href="https://www.google.com/maps/search/?api=1&query=イオンモール沖縄ライカム" target="_blank" rel="noopener noreferrer"
+                               title="來客夢 Google 導航" aria-label="來客夢 Google 導航"
+                               class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </a>
+                            <div class="flex items-center gap-1 bg-[#FFFDF7] px-1.5 py-1 rounded-xl border-2 border-[#3E3A39] shadow-[1.5px_1.5px_0px_#3E3A39]">
+                                <button onclick="moveShoppingCard('rycom', -1)" title="向前/上搬移" aria-label="向前搬移" class="w-6 h-6 rounded-lg hover:bg-[#F6D27A] border border-[#3E3A39]/30 flex items-center justify-center text-xs font-black text-[#3E3A39] active:scale-90 transition-all">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                </button>
+                                <button onclick="moveShoppingCard('rycom', 1)" title="向後/下搬移" aria-label="向後搬移" class="w-6 h-6 rounded-lg hover:bg-[#F6D27A] border border-[#3E3A39]/30 flex items-center justify-center text-xs font-black text-[#3E3A39] active:scale-90 transition-all">
+                                    <i class="fa-solid fa-arrow-down"></i>
+                                </button>
+                                <span class="cursor-grab active:cursor-grabbing text-xs text-slate-400 hover:text-[#3E3A39] px-1 drag-handle" title="按住可拖曳搬移">
+                                    <i class="fa-solid fa-grip-vertical"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 旅客換券省錢秘技 -->
+                    <div class="p-3.5 bg-[#FEF3C7] rounded-2xl border-2 border-[#3E3A39] shadow-[2px_2px_0px_#3E3A39] space-y-1">
+                        <div class="flex items-center gap-1.5 text-xs font-black text-[#92400E]">
+                            <span class="text-sm">🎟️</span> 外國遊客專屬省錢秘技（開逛前必去！）
+                        </div>
+                        <p class="text-xs font-bold text-slate-700 leading-relaxed">
+                            正式開始血拚前，記得先到 <span class="text-[#3E3A39] font-black underline">1F 遊客中心</span>！外國遊客只要向櫃檯人員出示護照＆優惠券 QR Code，就能獲得永旺夢樂城「<span class="text-[#D97706] font-black">消費滿 5,500 日圓（含稅）折 500 日圓折價券</span>」或「<span class="text-[#3E3A39] font-black">驚喜小禮物</span>」二選一。
+                        </p>
+                    </div>
+
+                    <!-- 1F ~ 4F 重點鎖定必逛櫃位一覽 -->
+                    <div class="space-y-2">
+                        <div class="text-xs font-black text-[#3E3A39] flex items-center gap-1.5">
+                            <span>🗺️</span> 重點鎖定逛街櫃位導覽（1F ~ 4F）：
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-bold text-slate-700">
+                            <!-- 1F -->
+                            <div class="p-3 bg-[#FFF3F0] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                <span class="ehon-badge bg-[#F2A497] text-[11px]">1F 潮流動漫＆藥妝</span>
+                                <p class="pt-0.5 leading-relaxed text-slate-800">
+                                    • <span class="font-black text-[#3E3A39]">Pokémon Center</span> (寶可夢中心)<br>
+                                    • <span class="font-black text-[#3E3A39]">LOFT</span> (日系文具生活雜貨)<br>
+                                    • <span class="font-black text-[#3E3A39]">3 Coin+plus</span> (平價高質感生活物)<br>
+                                    • <span class="font-black text-[#3E3A39]">GU ＆ UNIQLO</span> (大型旗艦服飾)<br>
+                                    • <span class="font-black text-[#3E3A39]">DAISO</span> (大創百貨)<br>
+                                    • <span class="font-black text-[#3E3A39]">KOJIMA x BIC CAMERA 藥妝</span>
+                                </p>
+                            </div>
+
+                            <!-- 2F -->
+                            <div class="p-3 bg-[#FFFBEB] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                <span class="ehon-badge bg-[#F6D27A] text-[11px]">2F 戶外休閒＆生鮮超市</span>
+                                <p class="pt-0.5 leading-relaxed text-slate-800">
+                                    • <span class="font-black text-[#3E3A39]">mont-bell</span> (戶外登山機能服飾)<br>
+                                    • <span class="font-black text-[#3E3A39]">GLOBAL WORK</span> (日系休閒服飾)<br>
+                                    • <span class="font-black text-[#3E3A39]">X-girl ＆ BAYFLOW</span> (潮流服飾)<br>
+                                    • <span class="font-black text-[#3E3A39]">PLAZA</span> (美妝生活選品)<br>
+                                    • <span class="font-black text-[#3E3A39]">MEGA SPORT</span> (大型運動用品)<br>
+                                    • <span class="font-black text-[#3E3A39]">AEON STYLE 大型超市</span> (零食伴手禮)
+                                </p>
+                            </div>
+
+                            <!-- 3F -->
+                            <div class="p-3 bg-[#F0F8FC] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                <span class="ehon-badge bg-[#A8D3E6] text-[11px]">3F 文具生活＆3C家電</span>
+                                <p class="pt-0.5 leading-relaxed text-slate-800">
+                                    • <span class="font-black text-[#3E3A39]">AEON STYLE 文具</span> (手帳/筆記事務用品)<br>
+                                    • <span class="font-black text-[#3E3A39]">KOJIMA x BIC CAMERA 電器</span> (生活家電/吹風機/相機配件)
+                                </p>
+                            </div>
+
+                            <!-- 4F -->
+                            <div class="p-3 bg-[#F3FAF0] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                <span class="ehon-badge bg-[#B9DAA5] text-[11px]">4F 親子童裝＆扭蛋天堂</span>
+                                <p class="pt-0.5 leading-relaxed text-slate-800">
+                                    • <span class="font-black text-[#3E3A39]">BREEZE ＆ apres les cours</span> (日系童裝)<br>
+                                    • <span class="font-black text-[#3E3A39]">RIGHT ON</span> (休閒丹寧服飾)<br>
+                                    • <span class="font-black text-[#3E3A39]">TOYSRUS 玩具反斗城</span><br>
+                                    • <span class="font-black text-[#3E3A39]">AEON STYLE 玩具區</span><br>
+                                    • <span class="font-black text-[#3E3A39]">ガチャガチャの森 (扭蛋之森)</span><br>
+                                    • <span class="font-black text-[#3E3A39]">Dream Capsule (扭蛋膠囊)</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 特色美食饗宴 -->
+                    <div class="bg-[#FFFDF7] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1.5">
+                        <p class="text-[#3E3A39] font-black flex items-center gap-1.5">
+                            <span>🍴</span> 特色必吃人氣餐廳推薦：
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-0.5">
+                            <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                <span class="text-[#3E3A39] font-black">🍲 しゃぶしゃぶ美山 (2F)：</span>
+                                <p class="text-slate-600 text-[11px]">Miyama 日式涮涮鍋，鮮嫩肉品與豐富蔬菜吧吃到飽。</p>
+                            </div>
+                            <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                <span class="text-[#3E3A39] font-black">🥩 焼肉なべしま (5F)：</span>
+                                <p class="text-slate-600 text-[11px]">Nabeshima 九州人氣黑毛和牛燒肉，肉質醇厚鮮甜。</p>
+                            </div>
+                            <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                <span class="text-[#3E3A39] font-black">🍔 A&W 美式漢堡 (4F)：</span>
+                                <p class="text-slate-600 text-[11px]">4 樓美食街必吃！現烤漢堡配招牌麥根沙士。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 浦添西海岸 PARCO CITY -->
+                <div class="ehon-card ehon-shopping-card p-6 bg-white space-y-4 transition-all duration-300 relative" data-id="parco-city">
+                    <div class="flex items-center justify-between flex-wrap gap-2 border-b-2 border-dashed border-[#D3CEC4] pb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="shopping-order-badge ehon-badge bg-[#A8D3E6] font-black text-xs text-[#3E3A39]">#3</span>
+                            <h3 class="text-lg font-black text-[#3E3A39]">🏢 浦添西海岸 PARCO CITY</h3>
+                        </div>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-22:00</span>
+                            <span class="ehon-badge bg-[#A8D3E6]">海景購物</span>
+                            <a href="https://www.google.com/maps/search/?api=1&query=サンエー浦添西海岸+PARCO+CITY" target="_blank" rel="noopener noreferrer"
+                               title="PARCO CITY Google 導航" aria-label="PARCO CITY Google 導航"
+                               class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </a>
+                            <div class="flex items-center gap-1 bg-[#FFFDF7] px-1.5 py-1 rounded-xl border-2 border-[#3E3A39] shadow-[1.5px_1.5px_0px_#3E3A39]">
+                                <button onclick="moveShoppingCard('parco-city', -1)" title="向前/上搬移" aria-label="向前搬移" class="w-6 h-6 rounded-lg hover:bg-[#F6D27A] border border-[#3E3A39]/30 flex items-center justify-center text-xs font-black text-[#3E3A39] active:scale-90 transition-all">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                </button>
+                                <button onclick="moveShoppingCard('parco-city', 1)" title="向後/下搬移" aria-label="向後搬移" class="w-6 h-6 rounded-lg hover:bg-[#F6D27A] border border-[#3E3A39]/30 flex items-center justify-center text-xs font-black text-[#3E3A39] active:scale-90 transition-all">
+                                    <i class="fa-solid fa-arrow-down"></i>
+                                </button>
+                                <span class="cursor-grab active:cursor-grabbing text-xs text-slate-400 hover:text-[#3E3A39] px-1 drag-handle" title="按住可拖曳搬移">
+                                    <i class="fa-solid fa-grip-vertical"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <p class="text-xs font-bold text-slate-600 leading-relaxed">
-                        那霸核心商圈，各式沖繩傳統樂器三線、風獅爺陶藝、藥妝店與土產伴手禮集中地。
+                        坐擁無敵海景的最新型大型商場，集結超多初次登陸沖繩的日系人氣品牌、海景美食街與旗艦店鋪！
                     </p>
-                    <div class="bg-[#F3FAF0] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1">
-                        <p class="text-[#3E3A39] font-black">必吃地道料理：</p>
-                        <p>• 沖繩蕎麥麵 (Soba)：軟嫩三枚肉或豬軟骨配濃郁柴魚豬骨湯</p>
-                        <p>• 石垣牛燒肉與阿古豬涮涮鍋：油花均勻、口感入口即化</p>
-                        <p>• 牧志公設市場：1樓挑選活海鮮龍蝦、夜光貝，2樓代客料理</p>
+                    <div class="bg-[#F0F8FC] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1">
+                        <p class="text-[#3E3A39] font-black">必逛亮點精選：</p>
+                        <p>• 全沖繩最大「無印良品 MUJI」旗艦店（含刺繡客製與生鮮選物）</p>
+                        <p>• Loft 文具生活雜貨、3COINS+plus、ABC-MART GRAND STAGE</p>
+                        <p>• 2F 海景美食街（一邊享用敘敘苑燒肉便當、拉麵，一邊飽覽海平線）</p>
+                        <p>• 3F 流行潮流服飾、日系美妝與電影院棟</p>
                     </div>
                 </div>
+
+                <!-- 4. iias 沖繩豐崎 (iias Okinawa Toyosaki) -->
+                <div class="ehon-card ehon-shopping-card p-6 bg-white space-y-4 transition-all duration-300 relative" data-id="iias-toyosaki">
+                    <div class="flex items-center justify-between flex-wrap gap-2 border-b-2 border-dashed border-[#D3CEC4] pb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="shopping-order-badge ehon-badge bg-[#B9DAA5] font-black text-xs text-[#3E3A39]">#4</span>
+                            <h3 class="text-lg font-black text-[#3E3A39]">🌊 iias 沖繩豐崎 (iias Okinawa Toyosaki)</h3>
+                        </div>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <a href="https://toyosaki.iias.jp/" target="_blank" rel="noopener noreferrer"
+                               title="前往 iias 沖繩豐崎官方網站"
+                               class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#3E3A39] text-xs font-black shadow-[1.5px_1.5px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                <span>官網</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-21:00 ｜ 餐廳至 22:00</span>
+                            <span class="ehon-badge bg-[#B9DAA5]">海濱水族商場</span>
+                            <a href="https://www.google.com/maps/search/?api=1&query=イーアス沖縄豊崎" target="_blank" rel="noopener noreferrer"
+                               title="iias 沖繩豐崎 Google 導航" aria-label="iias 沖繩豐崎 Google 導航"
+                               class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </a>
+                            <div class="flex items-center gap-1 bg-[#FFFDF7] px-1.5 py-1 rounded-xl border-2 border-[#3E3A39] shadow-[1.5px_1.5px_0px_#3E3A39]">
+                                <button onclick="moveShoppingCard('iias-toyosaki', -1)" title="向前/上搬移" aria-label="向前搬移" class="w-6 h-6 rounded-lg hover:bg-[#F6D27A] border border-[#3E3A39]/30 flex items-center justify-center text-xs font-black text-[#3E3A39] active:scale-90 transition-all">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                </button>
+                                <button onclick="moveShoppingCard('iias-toyosaki', 1)" title="向後/下搬移" aria-label="向後搬移" class="w-6 h-6 rounded-lg hover:bg-[#F6D27A] border border-[#3E3A39]/30 flex items-center justify-center text-xs font-black text-[#3E3A39] active:scale-90 transition-all">
+                                    <i class="fa-solid fa-arrow-down"></i>
+                                </button>
+                                <span class="cursor-grab active:cursor-grabbing text-xs text-slate-400 hover:text-[#3E3A39] px-1 drag-handle" title="按住可拖曳搬移">
+                                    <i class="fa-solid fa-grip-vertical"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                        緊鄰「豐崎美麗 SUN 海灘」的超大型複合式濱海商場！直通「DMM Kariyushi 水族館」（水族館售票處與入口在 2 樓），匯集超過 150 家店鋪，兼具海景夕陽露台、日系家電、親子母嬰與豐富美食。
+                    </p>
+
+                    <!-- 1F ~ 3F 重點鎖定必逛櫃位一覽 -->
+                    <div class="space-y-2">
+                        <div class="text-xs font-black text-[#3E3A39] flex items-center gap-1.5">
+                            <span>🗺️</span> 重點鎖定逛街櫃位導覽（1F ~ 3F）：
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-bold text-slate-700">
+                            <!-- 1F -->
+                            <div class="p-3 bg-[#FFF3F0] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                <span class="ehon-badge bg-[#F2A497] text-[11px]">1F 家電運動＆扭蛋</span>
+                                <p class="pt-0.5 leading-relaxed text-slate-800">
+                                    • <span class="font-black text-[#3E3A39]">KOJIMA x BIC CAMERA</span> (生活家電)<br>
+                                    • <span class="font-black text-[#3E3A39]">DAISO</span> (大創百圓生活百貨)<br>
+                                    • <span class="font-black text-[#3E3A39]">SUPER SPORTS XEBIO</span> (大型運動戶外)<br>
+                                    • <span class="font-black text-[#3E3A39]">TOY GACHA</span> (扭蛋專區)
+                                </p>
+                            </div>
+
+                            <!-- 2F -->
+                            <div class="p-3 bg-[#FFFBEB] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                <span class="ehon-badge bg-[#F6D27A] text-[11px]">2F 潮流服飾＆鞋履</span>
+                                <p class="pt-0.5 leading-relaxed text-slate-800">
+                                    • <span class="font-black text-[#3E3A39]">UNIQLO</span> (大型旗艦休閒服飾)<br>
+                                    • <span class="font-black text-[#3E3A39]">ABC MARKET</span> (運動波鞋與休閒鞋履)<br>
+                                    <span class="text-[11px] text-[#0284C7] font-black bg-[#E0F2FE] px-2 py-0.5 rounded border border-[#0284C7]/30 inline-block mt-1">※ DMM Kariyushi 水族館入口在 2 樓</span>
+                                </p>
+                            </div>
+
+                            <!-- 3F -->
+                            <div class="p-3 bg-[#F0F8FC] rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                <span class="ehon-badge bg-[#A8D3E6] text-[11px]">3F 文具生活・扭蛋＆母嬰</span>
+                                <p class="pt-0.5 leading-relaxed text-slate-800">
+                                    • <span class="font-black text-[#3E3A39]">LOFT</span> (日系文具生活美妝選物)<br>
+                                    • <span class="font-black text-[#3E3A39]">GU</span> (平價時尚日系服飾)<br>
+                                    • <span class="font-black text-[#3E3A39]">Gashapon Bandai Official Shop</span> (萬代官方扭蛋旗艦店)<br>
+                                    • <span class="font-black text-[#3E3A39]">RIGHT ON</span> (日系美式休閒丹寧)<br>
+                                    • <span class="font-black text-[#3E3A39]">西松屋</span> (嬰幼兒童裝童鞋母嬰用品)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 特色美食饗宴 -->
+                    <div class="bg-[#FFFDF7] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1.5">
+                        <p class="text-[#3E3A39] font-black flex items-center gap-1.5">
+                            <span>🍴</span> 特色必吃人氣餐廳推薦：
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 pt-0.5">
+                            <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                <span class="text-[#3E3A39] font-black">🍜 博多一幸舍 (1F)：</span>
+                                <p class="text-slate-600 text-[11px]">經典博多豚骨拉麵，醇厚白湯與極細麵條。</p>
+                            </div>
+                            <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                <span class="text-[#3E3A39] font-black">🥚 鳥玉 (1F)：</span>
+                                <p class="text-slate-600 text-[11px]">沖繩超人氣在地雞蛋料理，滑嫩厚玉子燒與定食。</p>
+                            </div>
+                            <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                <span class="text-[#3E3A39] font-black">🍔 A&W 美式漢堡 (1F)：</span>
+                                <p class="text-slate-600 text-[11px]">沖繩經典現烤漢堡，必配冰沁招牌麥根沙士。</p>
+                            </div>
+                            <div class="p-2 rounded-lg bg-white border border-[#3E3A39] space-y-0.5">
+                                <span class="text-[#3E3A39] font-black">🍱 さち福や CAFE (3F)：</span>
+                                <p class="text-slate-600 text-[11px]">日式家庭料理定食、釜鍋現煮白飯與咖啡甜點。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. 那霸國際通 (Kokusai Dori) -->
+                <div class="ehon-card ehon-shopping-card p-6 bg-white space-y-4 transition-all duration-300 relative" data-id="kokusai-dori">
+                    <div class="flex items-center justify-between flex-wrap gap-2 border-b-2 border-dashed border-[#D3CEC4] pb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="shopping-order-badge ehon-badge bg-[#F6D27A] font-black text-xs text-[#3E3A39]">#5</span>
+                            <h3 class="text-lg font-black text-[#3E3A39]">🌴 那霸國際通 (Kokusai Dori)</h3>
+                        </div>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 街區約 10:00-22:00 ｜ 唐吉訶德 24H</span>
+                            <span class="ehon-badge bg-[#F6D27A]">奇蹟一哩</span>
+                            <a href="https://www.google.com/maps/search/?api=1&query=国際通り" target="_blank" rel="noopener noreferrer"
+                               title="國際通 Google 導航" aria-label="國際通 Google 導航"
+                               class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </a>
+                            <div class="flex items-center gap-1 bg-[#FFFDF7] px-1.5 py-1 rounded-xl border-2 border-[#3E3A39] shadow-[1.5px_1.5px_0px_#3E3A39]">
+                                <button onclick="moveShoppingCard('kokusai-dori', -1)" title="向前/上搬移" aria-label="向前搬移" class="w-6 h-6 rounded-lg hover:bg-[#F6D27A] border border-[#3E3A39]/30 flex items-center justify-center text-xs font-black text-[#3E3A39] active:scale-90 transition-all">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                </button>
+                                <button onclick="moveShoppingCard('kokusai-dori', 1)" title="向後/下搬移" aria-label="向後搬移" class="w-6 h-6 rounded-lg hover:bg-[#F6D27A] border border-[#3E3A39]/30 flex items-center justify-center text-xs font-black text-[#3E3A39] active:scale-90 transition-all">
+                                    <i class="fa-solid fa-arrow-down"></i>
+                                </button>
+                                <span class="cursor-grab active:cursor-grabbing text-xs text-slate-400 hover:text-[#3E3A39] px-1 drag-handle" title="按住可拖曳搬移">
+                                    <i class="fa-solid fa-grip-vertical"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                        那霸核心商圈，全長 1.6 公里的奇蹟一哩！各式沖繩傳統樂器三線、風獅爺陶藝、藥妝店、御菓子御殿紅芋塔與土產伴手禮集中地。
+                    </p>
+                    <div class="bg-[#FFFBEB] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1">
+                        <p class="text-[#3E3A39] font-black">必吃地道料理與必買名產：</p>
+                        <p>• <span class="text-[#3E3A39] font-black">地道美食</span>：沖繩蕎麥麵、石垣牛燒肉與阿古豬、第一牧志公設市場海鮮代客料理</p>
+                        <p>• <span class="text-[#3E3A39] font-black">採買名店</span>：御菓子御殿松尾店現烤紅芋塔、唐吉訶德驚安殿堂 (24H)、宮古島雪鹽冰淇淋</p>
+                    </div>
+                </div>
+
+            </div>
             </div>
         </section>
 
@@ -2258,7 +2764,175 @@
             switchDay(dayNum);
         }
 
-        // 行前清單 LocalStorage 儲存記憶
+        // =========================================================================
+        // 商場攻略：自動搬移、排序與記憶功能 (Shopping Mall Moving & Auto-Sort)
+        // =========================================================================
+        const DEFAULT_SHOPPING_ORDER = [
+            'american-village',
+            'rycom',
+            'parco-city',
+            'iias-toyosaki',
+            'kokusai-dori'
+        ];
+
+        function updateShoppingOrderBadges() {
+            const container = document.getElementById('shopping-grid');
+            if (!container) return;
+            const cards = Array.from(container.children).filter(el => el.hasAttribute('data-id'));
+            const colorPalette = ['#F2A497', '#F6D27A', '#A8D3E6', '#B9DAA5', '#F6D27A'];
+            cards.forEach((card, idx) => {
+                const badge = card.querySelector('.shopping-order-badge');
+                if (badge) {
+                    badge.textContent = `#${idx + 1}`;
+                    badge.style.backgroundColor = colorPalette[idx % colorPalette.length];
+                }
+            });
+        }
+
+        function saveShoppingOrder() {
+            const container = document.getElementById('shopping-grid');
+            if (!container) return;
+            const order = Array.from(container.children)
+                .map(card => card.getAttribute('data-id'))
+                .filter(Boolean);
+            localStorage.setItem('okinawa_shopping_order', JSON.stringify(order));
+            updateShoppingOrderBadges();
+        }
+
+        function loadShoppingOrder() {
+            const container = document.getElementById('shopping-grid');
+            if (!container) return;
+            let saved = null;
+            try {
+                saved = JSON.parse(localStorage.getItem('okinawa_shopping_order'));
+            } catch (e) {}
+
+            const order = (Array.isArray(saved) && saved.length === DEFAULT_SHOPPING_ORDER.length)
+                ? saved
+                : DEFAULT_SHOPPING_ORDER;
+
+            order.forEach(id => {
+                const card = container.querySelector(`[data-id="${id}"]`);
+                if (card) {
+                    container.appendChild(card);
+                }
+            });
+            updateShoppingOrderBadges();
+        }
+
+        function moveShoppingCard(cardId, delta) {
+            const container = document.getElementById('shopping-grid');
+            if (!container) return;
+            const card = container.querySelector(`[data-id="${cardId}"]`);
+            if (!card) return;
+
+            const children = Array.from(container.children).filter(el => el.hasAttribute('data-id'));
+            const currentIndex = children.indexOf(card);
+            const targetIndex = currentIndex + delta;
+
+            if (targetIndex < 0 || targetIndex >= children.length) return;
+
+            // 平滑搬移視覺回饋
+            card.classList.add('ring-4', 'ring-[#F6D27A]', 'scale-[1.02]');
+            setTimeout(() => {
+                card.classList.remove('ring-4', 'ring-[#F6D27A]', 'scale-[1.02]');
+            }, 300);
+
+            if (delta < 0) {
+                container.insertBefore(card, children[targetIndex]);
+            } else {
+                container.insertBefore(card, children[targetIndex].nextSibling);
+            }
+
+            saveShoppingOrder();
+        }
+
+        // 自動依指定順序重設排列 (附帶彈跳動畫)
+        function autoSortDefaultShopping() {
+            const container = document.getElementById('shopping-grid');
+            if (!container) return;
+
+            DEFAULT_SHOPPING_ORDER.forEach((id, idx) => {
+                setTimeout(() => {
+                    const card = container.querySelector(`[data-id="${id}"]`);
+                    if (card) {
+                        container.appendChild(card);
+                        card.classList.add('day-btn-bounce');
+                        setTimeout(() => card.classList.remove('day-btn-bounce'), 380);
+                        if (idx === DEFAULT_SHOPPING_ORDER.length - 1) {
+                            saveShoppingOrder();
+                        }
+                    }
+                }, idx * 70);
+            });
+        }
+
+        // 依序自動導覽平滑滾動至下一個商場
+        let currentMallNavIndex = 0;
+        function autoScrollShoppingNext() {
+            const container = document.getElementById('shopping-grid');
+            if (!container) return;
+            const cards = Array.from(container.children).filter(el => el.hasAttribute('data-id'));
+            if (!cards.length) return;
+
+            currentMallNavIndex = (currentMallNavIndex + 1) % cards.length;
+            const target = cards[currentMallNavIndex];
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                target.classList.add('ring-4', 'ring-[#F6D27A]');
+                setTimeout(() => target.classList.remove('ring-4', 'ring-[#F6D27A]'), 1400);
+            }
+        }
+
+        // 快速聚焦至指定商場
+        function scrollToShoppingCard(cardId) {
+            const target = document.querySelector(`[data-id="${cardId}"]`);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                target.classList.add('ring-4', 'ring-[#F6D27A]');
+                setTimeout(() => target.classList.remove('ring-4', 'ring-[#F6D27A]'), 1400);
+            }
+        }
+
+        // 拖曳搬移排序 (HTML5 Drag & Drop)
+        function initShoppingDragAndDrop() {
+            const container = document.getElementById('shopping-grid');
+            if (!container) return;
+            let draggedEl = null;
+
+            container.querySelectorAll('.ehon-shopping-card').forEach(card => {
+                card.setAttribute('draggable', 'true');
+
+                card.addEventListener('dragstart', (e) => {
+                    draggedEl = card;
+                    e.dataTransfer.effectAllowed = 'move';
+                    setTimeout(() => card.classList.add('opacity-40', 'scale-[0.98]'), 0);
+                });
+
+                card.addEventListener('dragend', () => {
+                    card.classList.remove('opacity-40', 'scale-[0.98]');
+                    draggedEl = null;
+                    saveShoppingOrder();
+                });
+
+                card.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                });
+
+                card.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    if (draggedEl && draggedEl !== card) {
+                        const rect = card.getBoundingClientRect();
+                        const next = (e.clientY - rect.top) / (rect.bottom - rect.top) > 0.5;
+                        container.insertBefore(draggedEl, next ? card.nextSibling : card);
+                        saveShoppingOrder();
+                    }
+                });
+            });
+        }
+
+        // 行前清單 LocalStorage 儲存記憶 & 初始化商場順序
         document.addEventListener('DOMContentLoaded', () => {
             const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
             checkboxes.forEach((cb, idx) => {
@@ -2273,6 +2947,10 @@
 
             // 預設選中 D1
             switchDay(1);
+
+            // 初始化商場排序與拖曳搬移
+            loadShoppingOrder();
+            initShoppingDragAndDrop();
         });
     </script>
 </body>
