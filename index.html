@@ -1,0 +1,2279 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌺 沖繩海風繪本之旅 2027・冬日自駕漫遊</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 引入清晰高辨識度的繁體中文思源黑體 (Noto Sans TC) + 俐落英數字體 (Plus Jakarta Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --washi-bg: #FFFCF6;       /* 和紙白底色 */
+            --ink-border: #3E3A39;     /* 3px 墨灰粗線框 */
+            --coral-pink: #F2A497;     /* 珊瑚粉 */
+            --yamabuki-yellow: #F6D27A;/* 山吹黃 */
+            --water-blue: #A8D3E6;     /* 水色 */
+            --wakatake-green: #B9DAA5; /* 若竹綠 */
+            --soft-coral: #FFF3F0;
+            --soft-yellow: #FFFBEB;
+            --soft-blue: #F0F8FC;
+            --soft-green: #F3FAF0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Hiragino Sans TC", "Microsoft JhengHei", sans-serif;
+            background-color: var(--washi-bg);
+            color: var(--ink-border);
+            letter-spacing: 0.015em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            line-height: 1.65;
+        }
+
+        /* 標題清晰度強化 */
+        h1, h2, h3, h4, h5, .font-black {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 900 !important;
+            color: var(--ink-border);
+            letter-spacing: 0.01em;
+        }
+
+        /* 繪本風：墨灰粗邊線 + 實心平塗無漸層 + 大圓角 + 可愛微厚度實色陰影 */
+        .ehon-card {
+            background-color: #FFFFFF;
+            border: 3px solid var(--ink-border);
+            border-radius: 24px;
+            box-shadow: 4px 4px 0px var(--ink-border);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .ehon-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--ink-border);
+        }
+
+        .ehon-card-flat {
+            background-color: #FFFFFF;
+            border: 3px solid var(--ink-border);
+            border-radius: 22px;
+            box-shadow: 3px 3px 0px var(--ink-border);
+        }
+
+        .ehon-btn {
+            border: 3px solid var(--ink-border);
+            border-radius: 18px;
+            box-shadow: 3px 3px 0px var(--ink-border);
+            transition: all 0.15s ease-in-out;
+            font-weight: 800;
+        }
+
+        .ehon-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px var(--ink-border);
+        }
+
+        .ehon-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px var(--ink-border);
+        }
+
+        /* 徽章 Badge 樣式 (平塗無漸層，字體清晰銳利) */
+        .ehon-badge {
+            display: inline-flex;
+            align-items: center;
+            border: 2px solid var(--ink-border);
+            border-radius: 12px;
+            padding: 3px 10px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: 0.02em;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .day-panel {
+            display: none;
+        }
+
+        .day-panel.active {
+            display: block;
+            animation: dayBounceIn 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        /* 自定義捲軸 */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* 導航狀態 */
+        .nav-btn-active {
+            background-color: var(--yamabuki-yellow) !important;
+            color: var(--ink-border) !important;
+            transform: translate(-1px, -2px);
+            box-shadow: 3px 3px 0px var(--ink-border) !important;
+        }
+
+        /* ==========================================================================
+           繪本風微動畫 (插圖輕柔浮動、微晃與呼吸)
+           ========================================================================== */
+        @keyframes ehon-float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-6px) rotate(2deg);
+            }
+        }
+
+        @keyframes ehon-sway {
+            0%, 100% {
+                transform: rotate(-3deg);
+            }
+            50% {
+                transform: rotate(3deg);
+            }
+        }
+
+        @keyframes ehon-breathe {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+        /* 切換日期行程卡片彈跳動態 (手繪繪本 Q 彈效果) */
+        @keyframes dayBounceIn {
+            0% {
+                opacity: 0;
+                transform: translateY(16px) scale(0.96);
+            }
+            55% {
+                opacity: 1;
+                transform: translateY(-4px) scale(1.02);
+            }
+            75% {
+                transform: translateY(2px) scale(0.995);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* 點選日期按鈕回彈效果 */
+        @keyframes btnBounce {
+            0% { transform: scale(0.9); }
+            45% { transform: scale(1.15); }
+            75% { transform: scale(0.98); }
+            100% { transform: scale(1.05); }
+        }
+
+        .ehon-illust-float {
+            display: inline-block;
+            animation: ehon-float 3.6s ease-in-out infinite;
+            transform-origin: center center;
+            will-change: transform;
+        }
+
+        .ehon-illust-sway {
+            display: inline-block;
+            animation: ehon-sway 3.2s ease-in-out infinite alternate;
+            transform-origin: bottom center;
+            will-change: transform;
+        }
+
+        .ehon-illust-breathe {
+            display: inline-block;
+            animation: ehon-breathe 2.8s ease-in-out infinite;
+            transform-origin: center center;
+            will-change: transform;
+        }
+
+        .day-btn-bounce {
+            animation: btnBounce 0.36s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .animate-bounce-gentle {
+            display: inline-block;
+            animation: ehon-float 3s ease-in-out infinite;
+        }
+
+        /* 虛線裝飾 (日系手帳感) */
+        .ehon-divider {
+            border-top: 2.5px dashed #D3CEC4;
+        }
+
+        /* 自駕 MapCode 專屬標籤：大字體、高對比，自駕輸入清晰易讀 */
+        .mapcode-badge {
+            background-color: #FEF3C7;
+            border: 2px solid var(--ink-border);
+            border-radius: 10px;
+            padding: 3px 10px;
+            font-family: 'Plus Jakarta Sans', monospace, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #92400E;
+            letter-spacing: 0.04em;
+            display: inline-block;
+        }
+
+        /* 景點 / 賣場 營業與開放時間專屬標籤 */
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4.5px;
+            background-color: #FFFFFF;
+            border: 2px solid var(--ink-border);
+            border-radius: 10px;
+            padding: 3px 9px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--ink-border);
+            letter-spacing: 0.02em;
+            box-shadow: 1.5px 1.5px 0px var(--ink-border);
+            white-space: nowrap;
+        }
+
+        .time-badge i {
+            color: #D97706;
+        }
+
+        /* ==========================================================================
+           手機螢幕專屬優化 (全面提升可讀性與閱讀舒適度)
+           ========================================================================== */
+        @media (max-width: 640px) {
+            /* 1. 調整整體基準字級，防止在手機上字型過小模糊 */
+            html {
+                font-size: 15.5px;
+            }
+
+            body {
+                line-height: 1.68;
+            }
+
+            /* 2. 卡片內邊距優化：手機版縮減邊距以爭取文字展開空間 */
+            .ehon-card, .ehon-card-flat {
+                padding: 1.25rem 1rem !important;
+                border-radius: 20px !important;
+                border-width: 2.5px !important;
+                box-shadow: 3px 3px 0px var(--ink-border) !important;
+            }
+
+            /* 3. 針對原本過小的文字放大加粗，在手機戶外陽光下皆清晰可辨 */
+            .text-xs {
+                font-size: 0.875rem !important; /* 提升至 14px */
+                line-height: 1.6 !important;
+            }
+
+            p, li {
+                font-size: 0.95rem !important; /* 約 15px */
+                line-height: 1.68 !important;
+            }
+
+            /* 4. 標題縮放與緊湊化，防止斷行破碎 */
+            h1 {
+                font-size: 1.7rem !important;
+                line-height: 1.28 !important;
+            }
+
+            h2 {
+                font-size: 1.32rem !important;
+                line-height: 1.32 !important;
+            }
+
+            h3 {
+                font-size: 1.15rem !important;
+                line-height: 1.38 !important;
+            }
+
+            h4 {
+                font-size: 1.05rem !important;
+                line-height: 1.4 !important;
+            }
+
+            /* 5. 每日行程按鈕在手機上比例更貼合手指觸控 */
+            .day-btn {
+                width: 4.4rem !important;
+                height: 4.4rem !important;
+                border-radius: 16px !important;
+                border-width: 2.5px !important;
+            }
+
+            .day-btn span:first-child {
+                font-size: 1.05rem !important;
+                font-weight: 900 !important;
+            }
+
+            .day-btn span:last-child {
+                font-size: 0.75rem !important;
+                font-weight: 700 !important;
+            }
+
+            /* 6. MapCode 標籤加大字號，在自駕車上輸入清晰好讀 */
+            .mapcode-badge {
+                font-size: 0.875rem !important;
+                padding: 4px 10px !important;
+                border-width: 2px !important;
+            }
+
+            /* 7. 徽章標籤調整 */
+            .ehon-badge {
+                font-size: 0.8rem !important;
+                padding: 4px 10px !important;
+            }
+
+            /* 8. 核取清單加大點擊面積 */
+            #checklist label {
+                padding: 0.75rem 0.65rem !important;
+                font-size: 0.95rem !important;
+                border-radius: 14px !important;
+                background-color: rgba(255, 255, 255, 0.6);
+            }
+
+            #checklist input[type="checkbox"] {
+                width: 1.25rem !important;
+                height: 1.25rem !important;
+                border-width: 2px !important;
+                margin-top: 2px !important;
+                flex-shrink: 0;
+            }
+
+            /* 9. 表格文字適應手機 */
+            table th, table td {
+                padding: 0.65rem 0.5rem !important;
+                font-size: 0.825rem !important;
+                line-height: 1.45 !important;
+            }
+
+            /* 10. 景點地圖導航按鈕在手機上好按易點 */
+            .spot-map-btn {
+                width: 2.35rem !important;
+                height: 2.35rem !important;
+                font-size: 1.05rem !important;
+                border-radius: 12px !important;
+                flex-shrink: 0;
+            }
+
+            /* 11. 營業時間標籤適應手機排版 */
+            .time-badge {
+                font-size: 0.75rem !important;
+                padding: 2.5px 7px !important;
+            }
+        }
+
+        /* ==========================================================================
+           支援減少動態效果 (prefers-reduced-motion: reduce)
+           當使用者系統設定減少動態效果時，自動關閉所有漂浮、彈跳、縮放與滾動效果
+           ========================================================================== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .day-panel.active {
+                animation: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+
+            .day-btn-bounce,
+            .ehon-illust-float,
+            .ehon-illust-sway,
+            .ehon-illust-breathe,
+            .animate-bounce-gentle {
+                animation: none !important;
+                transform: none !important;
+            }
+
+            .ehon-card:hover,
+            .ehon-btn:hover,
+            .day-btn:hover {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col antialiased selection:bg-[#F6D27A] selection:text-[#3E3A39]">
+
+    <!-- 頂部手繪導航欄 -->
+    <header class="sticky top-0 z-50 bg-[#FFFCF6] border-b-[3px] border-[#3E3A39]">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo 品牌 -->
+                <div class="flex items-center space-x-3 cursor-pointer group" onclick="switchTab('overview')">
+                    <span class="text-3xl ehon-illust-sway inline-block select-none">🌺</span>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="font-black text-xl md:text-2xl tracking-tight text-[#3E3A39]">沖繩繪本之旅</span>
+                            <span class="bg-[#F2A497] text-[#3E3A39] text-xs font-black px-2 py-0.5 rounded-full border-2 border-[#3E3A39]">2027 WINTER</span>
+                        </div>
+                        <p class="text-[11px] font-bold text-slate-500">2027.1.23 - 1.31 ｜ 6天自駕＋3天漫遊</p>
+                    </div>
+                </div>
+
+                <!-- 桌面版導航選單 (日系手帳按鈕風格) -->
+                <nav class="hidden md:flex items-center space-x-2" id="nav-desktop">
+                    <button onclick="switchTab('overview')" id="btn-overview"
+                        class="px-4 py-2 rounded-xl text-sm font-black border-2 border-[#3E3A39] bg-white transition-all nav-btn-active">
+                        🗺️ 行程總覽
+                    </button>
+                    <button onclick="switchTab('itinerary')" id="btn-itinerary"
+                        class="px-4 py-2 rounded-xl text-sm font-black border-2 border-[#3E3A39] bg-white transition-all hover:bg-[#FFF3F0]">
+                        📅 每日行程 (D1-D9)
+                    </button>
+                    <button onclick="switchTab('transport')" id="btn-transport"
+                        class="px-4 py-2 rounded-xl text-sm font-black border-2 border-[#3E3A39] bg-white transition-all hover:bg-[#F0F8FC]">
+                        🚗 自駕與交通寶典
+                    </button>
+                    <button onclick="switchTab('shopping')" id="btn-shopping"
+                        class="px-4 py-2 rounded-xl text-sm font-black border-2 border-[#3E3A39] bg-white transition-all hover:bg-[#F3FAF0]">
+                        🛍️ 景點商場攻略
+                    </button>
+                    <button onclick="switchTab('checklist')" id="btn-checklist"
+                        class="px-4 py-2 rounded-xl text-sm font-black border-2 border-[#3E3A39] bg-white transition-all hover:bg-[#FFFBEB]">
+                        ✏️ 行前清單管家
+                    </button>
+                </nav>
+
+                <!-- 手機版漢堡按鈕 -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="p-2.5 rounded-2xl border-[3px] border-[#3E3A39] bg-white shadow-[2px_2px_0px_#3E3A39] text-[#3E3A39] active:translate-x-0.5 active:translate-y-0.5">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機版選單展開 -->
+        <div class="hidden bg-[#FFFCF6] border-b-[3px] border-[#3E3A39]" id="mobile-menu">
+            <div class="px-4 py-4 space-y-2.5">
+                <button onclick="switchTab('overview'); toggleMobileMenu();"
+                    class="w-full text-left p-3 rounded-2xl font-black border-2 border-[#3E3A39] bg-white hover:bg-[#F6D27A] flex items-center space-x-2">
+                    <span>🗺️</span><span>行程總覽</span>
+                </button>
+                <button onclick="switchTab('itinerary'); toggleMobileMenu();"
+                    class="w-full text-left p-3 rounded-2xl font-black border-2 border-[#3E3A39] bg-white hover:bg-[#F2A497] flex items-center space-x-2">
+                    <span>📅</span><span>每日行程 (D1-D9)</span>
+                </button>
+                <button onclick="switchTab('transport'); toggleMobileMenu();"
+                    class="w-full text-left p-3 rounded-2xl font-black border-2 border-[#3E3A39] bg-white hover:bg-[#A8D3E6] flex items-center space-x-2">
+                    <span>🚗</span><span>自駕與交通寶典</span>
+                </button>
+                <button onclick="switchTab('shopping'); toggleMobileMenu();"
+                    class="w-full text-left p-3 rounded-2xl font-black border-2 border-[#3E3A39] bg-white hover:bg-[#B9DAA5] flex items-center space-x-2">
+                    <span>🛍️</span><span>景點商場攻略</span>
+                </button>
+                <button onclick="switchTab('checklist'); toggleMobileMenu();"
+                    class="w-full text-left p-3 rounded-2xl font-black border-2 border-[#3E3A39] bg-white hover:bg-[#F6D27A] flex items-center space-x-2">
+                    <span>✏️</span><span>行前清單管家</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
+
+        <!-- =========================================================================
+             分頁 1：行程總覽 (OVERVIEW)
+             ========================================================================= -->
+        <section id="overview" class="tab-content active space-y-8">
+            <!-- 繪本主題大橫幅 (平塗無漸層、3px墨灰線框、大圓角) -->
+            <div class="bg-[#A8D3E6] border-[3px] border-[#3E3A39] rounded-[28px] p-6 sm:p-10 shadow-[6px_6px_0px_#3E3A39] relative overflow-hidden">
+                <div class="relative z-10 space-y-4">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="bg-white text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl border-2 border-[#3E3A39]">
+                            ☀️ OKINAWA ROAD TRIP
+                        </span>
+                        <span class="bg-[#F2A497] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl border-2 border-[#3E3A39]">
+                            🚗 1/23 - 1/28 自駕無阻
+                        </span>
+                        <span class="bg-[#B9DAA5] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl border-2 border-[#3E3A39]">
+                            🚝 1/29 - 1/31 市區輕旅行
+                        </span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl font-black text-[#3E3A39] tracking-tight leading-tight">
+                        沖繩海風繪本散策 9 日遊
+                    </h1>
+
+                    <p class="text-sm sm:text-base font-bold text-[#3E3A39] max-w-2xl leading-relaxed">
+                        從北部美麗海的蔚藍鯨鯊、古宇利島浪漫海景，穿梭中部美國村落日與巨型商場，一路暢遊至南部玉泉洞鐘乳石秘境與那霸首里文化！
+                    </p>
+
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <div class="bg-[#FFFCF6] px-4 py-2.5 rounded-2xl border-2 border-[#3E3A39] shadow-[2px_2px_0px_#3E3A39] text-xs sm:text-sm font-black flex items-center gap-2">
+                            <span class="text-base">📅</span> 2027/01/23 (六) — 2027/01/31 (日) 共 9 天
+                        </div>
+                        <div class="bg-[#FFFCF6] px-4 py-2.5 rounded-2xl border-2 border-[#3E3A39] shadow-[2px_2px_0px_#3E3A39] text-xs sm:text-sm font-black flex items-center gap-2">
+                            <span class="text-base">📍</span> 沖繩本島・北部 ➔ 中部 ➔ 南部 ➔ 那霸
+                        </div>
+                    </div>
+                </div>
+                <!-- 裝飾小符號 -->
+                <div class="absolute -bottom-6 -right-4 text-8xl opacity-30 select-none pointer-events-none ehon-illust-float">
+                    🐬
+                </div>
+            </div>
+
+            <!-- 三大核心基石：自駕租還、住宿分佈、冬日天氣 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 自駕租還卡 -->
+                <div class="ehon-card p-6 bg-[#FFFBEB] space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-2xl shadow-[2px_2px_0px_#3E3A39]">
+                        <span class="ehon-illust-float">🚗</span>
+                    </div>
+                    <h3 class="text-lg font-black text-[#3E3A39]">6 天自駕・甲租乙還 / 市區還車</h3>
+                    <p class="text-xs font-bold text-slate-700 leading-relaxed">
+                        • <span class="text-[#3E3A39] font-black">1/23 (D1) 那霸機場取車</span>：直奔北部名護。<br>
+                        • <span class="text-[#3E3A39] font-black">1/28 (D6) 那霸市區還車</span>：南部巡禮結束後還車，免去市區塞車與高昂停車費！
+                    </p>
+                </div>
+
+                <!-- 飯店分布卡 -->
+                <div class="ehon-card p-6 bg-[#FFF3F0] space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-[#F2A497] border-2 border-[#3E3A39] flex items-center justify-center text-2xl shadow-[2px_2px_0px_#3E3A39]">
+                        <span class="ehon-illust-breathe">🏨</span>
+                    </div>
+                    <h3 class="text-lg font-black text-[#3E3A39]">三大分區住宿計劃</h3>
+                    <p class="text-xs font-bold text-slate-700 leading-relaxed">
+                        • <span class="font-black text-[#3E3A39]">D1 - D2 (2晚)</span>：北部名護海濱飯店<br>
+                        • <span class="font-black text-[#3E3A39]">D3 - D4 (2晚)</span>：中部美國村海景渡假飯店<br>
+                        • <span class="font-black text-[#3E3A39]">D5 - D8 (4晚)</span>：那霸市區交通便利飯店
+                    </p>
+                </div>
+
+                <!-- 冬日氣候卡 -->
+                <div class="ehon-card p-6 bg-[#F3FAF0] space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-[#B9DAA5] border-2 border-[#3E3A39] flex items-center justify-center text-2xl shadow-[2px_2px_0px_#3E3A39]">
+                        <span class="ehon-illust-sway">🌤️</span>
+                    </div>
+                    <h3 class="text-lg font-black text-[#3E3A39]">1月冬日沖繩小貼士</h3>
+                    <p class="text-xs font-bold text-slate-700 leading-relaxed">
+                        沖繩 1 月均溫約 17℃~21℃，體感涼爽舒適！海邊海風較強烈，建議洋蔥式穿搭，必備<span class="font-black text-[#3E3A39]">防風外套、圍巾與薄毛衣</span>。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 9 天行程動線地圖式鳥瞰按鈕 -->
+            <div class="ehon-card p-6 sm:p-8 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-dashed border-[#D3CEC4] pb-4">
+                    <div>
+                        <h2 class="text-2xl font-black text-[#3E3A39] flex items-center gap-2">
+                            <span>🧭</span> 行程動線鳥瞰快速切換
+                        </h2>
+                        <p class="text-xs font-bold text-slate-500 mt-1">點選任一日程直接進入每日行程詳細攻略</p>
+                    </div>
+                    <span class="text-xs font-black bg-[#F6D27A] px-3 py-1 rounded-xl border-2 border-[#3E3A39] self-start sm:self-auto">
+                        點擊卡片跳轉 ➔
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- D1 -->
+                    <button onclick="jumpToDay(1)"
+                        class="p-4 rounded-2xl border-[3px] border-[#3E3A39] bg-[#FFF3F0] hover:bg-[#F2A497] transition-all text-left shadow-[3px_3px_0px_#3E3A39] hover:translate-x-[-2px] hover:translate-y-[-2px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="ehon-badge bg-[#F2A497]">D1 · 1/23 (六)</span>
+                            <span class="text-xs font-black text-[#3E3A39]">🚗 自駕啟航</span>
+                        </div>
+                        <h4 class="font-black text-sm text-[#3E3A39]">奔向蔚藍海風！恩納之驛休憩・部瀨名海中公園與名護初夜</h4>
+                        <p class="text-xs text-slate-600 font-bold mt-1">恩納之驛海產午餐 ➔ 玻璃底船 ➔ 海中展望塔 ➔ 宿名護</p>
+                    </button>
+
+                    <!-- D2 -->
+                    <button onclick="jumpToDay(2)"
+                        class="p-4 rounded-2xl border-[3px] border-[#3E3A39] bg-[#F0F8FC] hover:bg-[#A8D3E6] transition-all text-left shadow-[3px_3px_0px_#3E3A39] hover:translate-x-[-2px] hover:translate-y-[-2px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="ehon-badge bg-[#A8D3E6]">D2 · 1/24 (日)</span>
+                            <span class="text-xs font-black text-[#3E3A39]">🐋 海洋精華</span>
+                        </div>
+                        <h4 class="font-black text-sm text-[#3E3A39]">鯨鯊震撼與戀之島！美麗海與古宇利巡禮</h4>
+                        <p class="text-xs text-slate-600 font-bold mt-1">黑潮之海 ➔ 古宇利大橋 ➔ 心型石 ➔ 宿名護</p>
+                    </button>
+
+                    <!-- D3 -->
+                    <button onclick="jumpToDay(3)"
+                        class="p-4 rounded-2xl border-[3px] border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] transition-all text-left shadow-[3px_3px_0px_#3E3A39] hover:translate-x-[-2px] hover:translate-y-[-2px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="ehon-badge bg-[#F6D27A]">D3 · 1/25 (一)</span>
+                            <span class="text-xs font-black text-[#3E3A39]">🎡 中部風情</span>
+                        </div>
+                        <h4 class="font-black text-sm text-[#3E3A39]">斷崖巨浪與美式落日！萬座毛到北谷美國村</h4>
+                        <p class="text-xs text-slate-600 font-bold mt-1">象鼻岩 ➔ 殘波岬燈塔 ➔ 落日海灘 ➔ 宿美國村</p>
+                    </button>
+
+                    <!-- D4 -->
+                    <button onclick="jumpToDay(4)"
+                        class="p-4 rounded-2xl border-[3px] border-[#3E3A39] bg-[#F3FAF0] hover:bg-[#B9DAA5] transition-all text-left shadow-[3px_3px_0px_#3E3A39] hover:translate-x-[-2px] hover:translate-y-[-2px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="ehon-badge bg-[#B9DAA5]">D4 · 1/26 (二)</span>
+                            <span class="text-xs font-black text-[#3E3A39]">🛍️ 遺產與血拼</span>
+                        </div>
+                        <h4 class="font-black text-sm text-[#3E3A39]">世界文化遺產石城與旗艦級商場狂歡</h4>
+                        <p class="text-xs text-slate-600 font-bold mt-1">中城城跡遠眺 ➔ 來客夢大水槽血拼 ➔ 宿美國村</p>
+                    </button>
+
+                    <!-- D5 -->
+                    <button onclick="jumpToDay(5)"
+                        class="p-4 rounded-2xl border-[3px] border-[#3E3A39] bg-[#FFF3F0] hover:bg-[#F2A497] transition-all text-left shadow-[3px_3px_0px_#3E3A39] hover:translate-x-[-2px] hover:translate-y-[-2px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="ehon-badge bg-[#F2A497]">D5 · 1/27 (三)</span>
+                            <span class="text-xs font-black text-[#3E3A39]">✨ 藝術文青</span>
+                        </div>
+                        <h4 class="font-black text-sm text-[#3E3A39]">海景購物、復古文青街與數位光影特展</h4>
+                        <p class="text-xs text-slate-600 font-bold mt-1">PARCO CITY ➔ 港川住宅街 ➔ teamLab ➔ 宿那霸</p>
+                    </button>
+
+                    <!-- D6 -->
+                    <button onclick="jumpToDay(6)"
+                        class="p-4 rounded-2xl border-[3px] border-[#3E3A39] bg-[#F0F8FC] hover:bg-[#A8D3E6] transition-all text-left shadow-[3px_3px_0px_#3E3A39] hover:translate-x-[-2px] hover:translate-y-[-2px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="ehon-badge bg-[#A8D3E6]">D6 · 1/28 (四)</span>
+                            <span class="text-xs font-black text-[#3E3A39]">⛩️ 南部秘境</span>
+                        </div>
+                        <h4 class="font-black text-sm text-[#3E3A39]">鐘乳石奇境、知念岬、齋場御嶽與南城物產巡禮</h4>
+                        <p class="text-xs text-slate-600 font-bold mt-1">玉泉洞太鼓秀 ➔ 知念岬 ➔ 齋場御嶽 ➔ 南城市地域物產館 ➔ 那霸還車</p>
+                    </button>
+
+                    <!-- D7 -->
+                    <button onclick="jumpToDay(7)"
+                        class="p-4 rounded-2xl border-[3px] border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] transition-all text-left shadow-[3px_3px_0px_#3E3A39] hover:translate-x-[-2px] hover:translate-y-[-2px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="ehon-badge bg-[#F6D27A]">D7 · 1/29 (五)</span>
+                            <span class="text-xs font-black text-[#3E3A39]">🚝 市郊暢遊</span>
+                        </div>
+                        <h4 class="font-black text-sm text-[#3E3A39]">沉浸式科技水族館與大型濱海購物商場</h4>
+                        <p class="text-xs text-slate-600 font-bold mt-1">DMM 水族館透明走道 ➔ iias 豐崎海岸 ➔ 宿那霸</p>
+                    </button>
+
+                    <!-- D8 -->
+                    <button onclick="jumpToDay(8)"
+                        class="p-4 rounded-2xl border-[3px] border-[#3E3A39] bg-[#F3FAF0] hover:bg-[#B9DAA5] transition-all text-left shadow-[3px_3px_0px_#3E3A39] hover:translate-x-[-2px] hover:translate-y-[-2px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="ehon-badge bg-[#B9DAA5]">D8 · 1/30 (六)</span>
+                            <span class="text-xs font-black text-[#3E3A39]">🏰 王國古韻與祈福</span>
+                        </div>
+                        <h4 class="font-black text-sm text-[#3E3A39]">琉球王宮復興、達摩寺與沖宮天燈山雙聖地巡禮</h4>
+                        <p class="text-xs text-slate-600 font-bold mt-1">首里城見學 ➔ 西來院達摩寺 ➔ 沖宮能量祈福 ➔ 國際通熱鬧夜遊 ➔ 宿那霸</p>
+                    </button>
+
+                    <!-- D9 -->
+                    <button onclick="jumpToDay(9)"
+                        class="p-4 rounded-2xl border-[3px] border-[#3E3A39] bg-[#FFFCF6] hover:bg-[#F2A497] transition-all text-left shadow-[3px_3px_0px_#3E3A39] hover:translate-x-[-2px] hover:translate-y-[-2px]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="ehon-badge bg-[#F2A497]">D9 · 1/31 (日)</span>
+                            <span class="text-xs font-black text-[#3E3A39]">✈️ 祈福返航</span>
+                        </div>
+                        <h4 class="font-black text-sm text-[#3E3A39]">波上宮斷崖參拜祈福・國際通美味午餐與平安返航</h4>
+                        <p class="text-xs text-slate-600 font-bold mt-1">波上宮海灘 ➔ 國際通排隊名店午餐 ➔ 單軌直達機場 ➔ 平安返台</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 繪本貼心避坑筆記 (和紙手帳風格) -->
+            <div class="ehon-card p-6 sm:p-8 bg-[#FFFDF7] space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-3xl">📝</span>
+                    <h3 class="text-xl font-black text-[#3E3A39]">冬日沖繩 4 大實用防呆須知</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 rounded-2xl bg-[#FFF3F0] border-2 border-[#3E3A39] space-y-1">
+                        <p class="font-black text-sm text-[#3E3A39] flex items-center gap-1.5">
+                            <span>🚘</span> 租車必帶三大件
+                        </p>
+                        <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                            出發前請確認具備：<span class="text-[#3E3A39] font-black underline">台灣護照本</span>、<span class="text-[#3E3A39] font-black underline">台灣駕照正本</span> 以及監理所申請的 <span class="text-[#3E3A39] font-black underline">日文譯本正本</span>（缺一不可，國際駕照在日無效！）。
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-[#F0F8FC] border-2 border-[#3E3A39] space-y-1">
+                        <p class="font-black text-sm text-[#3E3A39] flex items-center gap-1.5">
+                            <span>⛽</span> 日本加油與 ETC
+                        </p>
+                        <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                            租車時建議加租 ETC 卡與安心險（CDW+NOC）。還車前請至營業所指定半徑內的加油站「加滿紅色 Regular 汽油」並保留收據。
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-[#FFFBEB] border-2 border-[#3E3A39] space-y-1">
+                        <p class="font-black text-sm text-[#3E3A39] flex items-center gap-1.5">
+                            <span>🌊</span> 冬季海中公園觀光船營運
+                        </p>
+                        <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                            部瀨名玻璃底船如遇海面風浪過大可能停開，海中展望塔通常照常開放。出發前可查閱官網當日浪況公告。
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-[#F3FAF0] border-2 border-[#3E3A39] space-y-1">
+                        <p class="font-black text-sm text-[#3E3A39] flex items-center gap-1.5">
+                            <span>🚝</span> 後期市區單軌 24 小時券
+                        </p>
+                        <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                            1/28 傍晚還車後進入市區，善用 Yui Rail 單軌電車（從首次刷卡起算 24 小時有效，大人 800 日圓），輕鬆省下交通費。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             分頁 2：每日行程 (ITINERARY - D1 至 D9)
+             ========================================================================= -->
+        <section id="itinerary" class="tab-content space-y-6">
+            <!-- 9 天切換按鈕軸 (日系手繪厚框按鈕) -->
+            <div class="flex space-x-2.5 sm:space-x-3 overflow-x-auto pb-4 pt-2 scrollbar-hide sticky top-20 bg-[#FFFCF6]/95 backdrop-blur-sm z-40">
+                <button onclick="switchDay(1)" id="daybtn-1"
+                    class="day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] bg-[#F2A497] text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[3px_3px_0px_#3E3A39]">
+                    <span class="text-sm sm:text-base">D1</span><span class="text-[11px] sm:text-xs">1/23 六</span>
+                </button>
+                <button onclick="switchDay(2)" id="daybtn-2"
+                    class="day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] bg-white text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[2px_2px_0px_#3E3A39] hover:bg-[#F0F8FC]">
+                    <span class="text-sm sm:text-base">D2</span><span class="text-[11px] sm:text-xs">1/24 日</span>
+                </button>
+                <button onclick="switchDay(3)" id="daybtn-3"
+                    class="day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] bg-white text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[2px_2px_0px_#3E3A39] hover:bg-[#FFFBEB]">
+                    <span class="text-sm sm:text-base">D3</span><span class="text-[11px] sm:text-xs">1/25 一</span>
+                </button>
+                <button onclick="switchDay(4)" id="daybtn-4"
+                    class="day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] bg-white text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[2px_2px_0px_#3E3A39] hover:bg-[#F3FAF0]">
+                    <span class="text-sm sm:text-base">D4</span><span class="text-[11px] sm:text-xs">1/26 二</span>
+                </button>
+                <button onclick="switchDay(5)" id="daybtn-5"
+                    class="day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] bg-white text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[2px_2px_0px_#3E3A39] hover:bg-[#FFF3F0]">
+                    <span class="text-sm sm:text-base">D5</span><span class="text-[11px] sm:text-xs">1/27 三</span>
+                </button>
+                <button onclick="switchDay(6)" id="daybtn-6"
+                    class="day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] bg-white text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[2px_2px_0px_#3E3A39] hover:bg-[#F0F8FC]">
+                    <span class="text-sm sm:text-base">D6</span><span class="text-[11px] sm:text-xs">1/28 四</span>
+                </button>
+                <button onclick="switchDay(7)" id="daybtn-7"
+                    class="day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] bg-white text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[2px_2px_0px_#3E3A39] hover:bg-[#FFFBEB]">
+                    <span class="text-sm sm:text-base">D7</span><span class="text-[11px] sm:text-xs">1/29 五</span>
+                </button>
+                <button onclick="switchDay(8)" id="daybtn-8"
+                    class="day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] bg-white text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[2px_2px_0px_#3E3A39] hover:bg-[#F3FAF0]">
+                    <span class="text-sm sm:text-base">D8</span><span class="text-[11px] sm:text-xs">1/30 六</span>
+                </button>
+                <button onclick="switchDay(9)" id="daybtn-9"
+                    class="day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] bg-white text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[2px_2px_0px_#3E3A39] hover:bg-[#FFF3F0]">
+                    <span class="text-sm sm:text-base">D9</span><span class="text-[11px] sm:text-xs">1/31 日</span>
+                </button>
+            </div>
+
+            <div id="day-content-container">
+
+                <!-- ---------------- DAY 1 ---------------- -->
+                <div id="day-1" class="day-panel active space-y-6">
+                    <div class="ehon-card p-6 bg-[#FFF3F0]">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="ehon-badge bg-[#F2A497]">1/23 (六) · 第一天</span>
+                                <h2 class="text-xl sm:text-2xl font-black text-[#3E3A39]">
+                                    奔向蔚藍海風！恩納之驛休憩・部瀨名海中公園與名護初夜
+                                </h2>
+                                <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center gap-1.5 flex-wrap pt-0.5">
+                                    <span class="bg-white/90 px-2 py-0.5 rounded-lg border border-[#3E3A39]/30 text-[#3E3A39]">📍 今日動線</span>
+                                    <span>那霸機場取車 ➔ 沿海自駕 ➔ 恩納之驛休憩市場 (海鮮在地午餐) ➔ 部瀨名海中公園 (玻璃船/展望塔) ➔ 名護飯店 Check-in</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-white border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🚗 自駕 Day 1</span>
+                                <span class="bg-[#F6D27A] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🏨 宿名護飯店</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 行程節點 1 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#A8D3E6] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">1</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">那霸機場抵達 ➔ 租車櫃台接駁取車</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 航廈 06:00-24:00 ｜ 租車 08:00-20:00</span>
+                                    <span class="text-xs font-black bg-[#F0F8FC] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">上午 / 中午</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=那覇空港+国内線旅客ターミナルビル" target="_blank" rel="noopener noreferrer"
+   title="機場導航" aria-label="機場導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                飛抵沖繩那霸機場後，依照指示至機場接駁站搭乘租車公司免費接駁專車前往營業所。辦理交車、驗車、設定車機中文導航或藍牙手機架。
+                            </p>
+                            <div class="bg-[#FFFBEB] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 space-y-1">
+                                <p class="text-[#3E3A39] font-black">💡 取車自駕秘訣：</p>
+                                <p>• 請主動向店員索取或確認「MapCode 速查卡」。右駕初上路請記住口訣：「雨刷在左、方向燈在右；轉彎記得看右邊大彎、左邊小彎」！</p>
+                                <p>• 上沖繩自動車道（西原IC ➔ 屋芸IC / 石川IC 轉 58 號濱海公路）。</p>
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 2 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">恩納之驛休憩市場 (おんなの駅 なかゆくい市場) ＆ 海鮮午餐</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 營業時間 10:00 - 19:00</span>
+                                    <span class="mapcode-badge">MapCode: 206 096 797*74</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=おんなの駅+なかゆくい市場" target="_blank" rel="noopener noreferrer"
+   title="恩納之驛休憩市場 Google 導航" aria-label="恩納之驛休憩市場 Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                前往部瀨名前的自駕神級中繼補給站！「なかゆくい」在沖繩方言中意為「悠閒小憩」。這裡集結了各式沖繩特色平民美食攤位、新鮮熱帶水果與物產伴手禮，附設大型免費停車場。
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-xs font-bold">
+                                <div class="bg-[#FFF3F0] p-3 rounded-xl border-2 border-[#3E3A39]">
+                                    <span class="text-[#3E3A39] font-black">🦞 浜の家 海鮮料理：</span>
+                                    必點「海膽醬烤龍蝦」與「烤海膽醬扇貝」，金黃濃郁香醇誘人！
+                                </div>
+                                <div class="bg-[#FFFBEB] p-3 rounded-xl border-2 border-[#3E3A39]">
+                                    <span class="text-[#3E3A39] font-black">🍩 三矢本舗沙翁：</span>
+                                    現炸熱騰騰的琉球傳統甜甜圈，外酥內軟，黑糖、紅芋與原味超推。
+                                </div>
+                                <div class="bg-[#F0F8FC] p-3 rounded-xl border-2 border-[#3E3A39]">
+                                    <span class="text-[#3E3A39] font-black">🍧 琉冰 (Ryu-pin)：</span>
+                                    份量澎湃的新鮮芒果百香果雪花冰，吃完暑意全消、心滿意足！
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 3 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F2A497] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">3</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">部瀨名海中公園 (Busena Marine Park)</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 冬季 09:00 - 17:00 (最終 16:30)</span>
+                                    <span class="mapcode-badge">MapCode: 206 442 075*11</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=ブセナ海中公園" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                沖繩本島唯一的「海中展望塔」與「鯨魚造型玻璃底觀光船」！沿著伸入湛藍大海的長棧橋散步，走入海平面下 4 公尺的圓形觀景窗，360 度觀賞悠游熱帶魚與小丑魚。
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs font-bold">
+                                <div class="bg-[#F0F8FC] p-3 rounded-xl border-2 border-[#3E3A39]">
+                                    <span class="text-[#3E3A39] font-black">🛥️ 玻璃底遊艇：</span>
+                                    船程約 20 分鐘，低頭就能看見繽紛珊瑚礁魚群，船上還可買魚飼料餵食！
+                                </div>
+                                <div class="bg-[#FFF3F0] p-3 rounded-xl border-2 border-[#3E3A39]">
+                                    <span class="text-[#3E3A39] font-black">🗼 海中展望塔：</span>
+                                    室內不受天氣影響，透過24個連環圓窗飽覽深海生態。
+                                </div>
+                            </div>
+                            <div class="text-xs font-bold text-slate-500">
+                                門票建議：展望塔＋玻璃底船套票 成人約 2,100 日圓 / 兒童約 1,050 日圓。免費復古紅色接駁小巴往返園區。
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 4 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#B9DAA5] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">4</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">名護飯店入住 Check-in & 名護特色晚餐</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 入住 15:00 起 ｜ 晚餐至 22:00</span>
+                                    <span class="text-xs font-black bg-[#F3FAF0] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">傍晚 / 晚上</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=名護市" target="_blank" rel="noopener noreferrer"
+   title="名護導航" aria-label="名護導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                開車約 15~20 分鐘抵達名護市區飯店，辦理入住手續並安置大行李。晚上可品嚐名護著名美食。
+                            </p>
+                            <div class="p-3.5 bg-[#FFFBEB] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 space-y-2">
+                                <p class="text-[#3E3A39] font-black">🍴 名護在地晚餐精選推薦與導航：</p>
+                                <div class="flex flex-col sm:flex-row gap-2 pt-0.5">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=百年古家+大家" target="_blank" rel="noopener noreferrer"
+                                       class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-[#3E3A39] bg-white hover:bg-[#F6D27A] text-[#3E3A39] font-black transition-all">
+                                        <i class="fa-solid fa-utensils text-[#D97706]"></i>
+                                        <span>百年古家 大家 (阿古豬涮涮鍋)</span>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1 text-slate-400"></i>
+                                    </a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=焼肉もとぶ牧場+名護店" target="_blank" rel="noopener noreferrer"
+                                       class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-[#3E3A39] bg-white hover:bg-[#F2A497] text-[#3E3A39] font-black transition-all">
+                                        <i class="fa-solid fa-fire text-[#DC2626]"></i>
+                                        <span>燒肉本部牧場 名護店 (頂級和牛)</span>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1 text-slate-400"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------------- DAY 2 ---------------- -->
+                <div id="day-2" class="day-panel hidden space-y-6">
+                    <div class="ehon-card p-6 bg-[#F0F8FC]">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="ehon-badge bg-[#A8D3E6]">1/24 (日) · 第二天</span>
+                                <h2 class="text-xl sm:text-2xl font-black text-[#3E3A39]">
+                                    鯨鯊震撼與戀之島！美麗海與古宇利跨海巡禮
+                                </h2>
+                                <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center gap-1.5 flex-wrap pt-0.5">
+                                    <span class="bg-white/90 px-2 py-0.5 rounded-lg border border-[#3E3A39]/30 text-[#3E3A39]">📍 今日動線</span>
+                                    <span>美麗海水族館 (黑潮之海/鯨鯊) ➔ 古宇利大橋 (海上兜風) ➔ 古宇利海洋塔 ➔ 提奴海灘心型石 ➔ 宿名護</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-white border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🚗 北部絕景自駕</span>
+                                <span class="bg-[#F6D27A] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🏨 連宿名護飯店</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 行程節點 1 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#A8D3E6] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">1</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">沖繩美麗海水族館 (Okinawa Churaumi Aquarium)</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 08:30 - 18:30 (最終入館 17:30)</span>
+                                    <span class="mapcode-badge">MapCode: 553 075 797*77</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=沖縄美ら海水族館" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                沖繩最具代表性的殿堂級地標！位於海洋博公園內。巨大透明壓克力展窗「黑潮之海」，看鯨鯊與鬼蝠魟在身邊優雅游弋，震撼感十足。
+                            </p>
+                            <div class="p-4 bg-[#F0F8FC] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 space-y-1.5">
+                                <p class="text-[#3E3A39] font-black">🌟 必看展區與表演時間提醒：</p>
+                                <p>• <span class="text-[#3E3A39] font-black">鯨鯊餵食秀</span>：通常於 15:00 及 17:00（依現場公告），看鯨鯊垂直直立進食的驚奇畫面。</p>
+                                <p>• <span class="text-[#3E3A39] font-black">戶外海豚劇場 (Okichan Theater)</span>：免費觀賞！以湛藍大海為背景的逗趣海豚特技跳躍表演。</p>
+                                <p>• 建議停留時間：約 2.5 ~ 3 小時。停車場建議停在最靠近水族館入口的 <span class="font-black text-[#3E3A39]">P7 立體停車場</span>。</p>
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 2 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">古宇利大橋 (Kouri Ohashi) ➔ 古宇利島跨海兜風</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 大橋 24H ｜ 蝦蝦飯 11:00-18:00</span>
+                                    <span class="mapcode-badge">MapCode: 485 662 041*33</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=古宇利大橋" target="_blank" rel="noopener noreferrer"
+   title="大橋導航" aria-label="大橋導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                全長 1,960 公尺的跨海大橋，筆直延伸至翠綠古宇利島。兩側為清澈透明的古宇利藍（Kouri Blue）漸層海水，被譽為沖繩最令人心醉的自駕公路！過橋前後皆設有免費停車場可下車拍照。
+                            </p>
+                            <div class="p-3 bg-[#FFFBEB] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 flex items-center justify-between flex-wrap gap-2">
+                                <div>
+                                    🍤 午餐必吃：島上著名的 <span class="text-[#3E3A39] font-black">KOURI SHRIMP 古宇利蝦蝦飯</span>，蒜香黃油香煎大蝦配白飯！
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=KOURI+SHRIMP" target="_blank" rel="noopener noreferrer"
+                                   class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-[#3E3A39] bg-white hover:bg-[#F6D27A] text-[#3E3A39] font-black text-xs transition-all">
+                                    <i class="fa-solid fa-utensils text-[#EA580C]"></i>
+                                    <span>蝦蝦飯導航</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 3 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F2A497] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">3</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">古宇利海洋塔 (Kouri Ocean Tower) ➔ 心型石 (Heart Rock)</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 海洋塔 10:00-17:00 (最終 16:30) ｜ 心型石 24H</span>
+                                    <span class="mapcode-badge">海洋塔: 485 693 485*00</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=古宇利オーシャンタワー" target="_blank" rel="noopener noreferrer"
+   title="海洋塔導航" aria-label="海洋塔導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#0284C7] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-tower-observation"></i>
+</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=ハートロック+古宇利島" target="_blank" rel="noopener noreferrer"
+   title="心型石導航" aria-label="心型石導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFF3F0] hover:bg-[#F2A497] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-heart"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                搭乘無人自動駕駛高爾夫球車登上純白海洋塔，館內收藏一萬件以上稀有貝殼，頂樓展望台敲響幸福之鐘，俯瞰整座跨海大橋全景。隨後開車前往島北側的 Ti-nu 海灘，朝聖天然雙心型珊瑚礁岩！
+                            </p>
+                            <div class="bg-[#FFF3F0] p-3 rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700">
+                                💡 心型石提醒：海灘為天然沙灘小徑，建議穿著好走的球鞋或防滑平底鞋前往。結束後返回名護飯店休息。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------------- DAY 3 ---------------- -->
+                <div id="day-3" class="day-panel hidden space-y-6">
+                    <div class="ehon-card p-6 bg-[#FFFBEB]">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="ehon-badge bg-[#F6D27A]">1/25 (一) · 第三天</span>
+                                <h2 class="text-xl sm:text-2xl font-black text-[#3E3A39]">
+                                    斷崖巨浪與美式落日！萬座毛到北谷美國村
+                                </h2>
+                                <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center gap-1.5 flex-wrap pt-0.5">
+                                    <span class="bg-white/90 px-2 py-0.5 rounded-lg border border-[#3E3A39]/30 text-[#3E3A39]">📍 今日動線</span>
+                                    <span>萬座毛象鼻岩 ➔ 殘波岬白色燈塔 ➔ 美國村飯店 Check-in ➔ 落日海灘夕陽 ➔ 宿美國村</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-white border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🚗 轉移中部自駕</span>
+                                <span class="bg-[#F2A497] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🏨 宿美國村飯店</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 行程節點 1 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">1</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">萬座毛 (Manzamo) 象鼻岩海景</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 08:00 - 19:00 (冬季設施至 18:30)</span>
+                                    <span class="mapcode-badge">MapCode: 206 312 038*55</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=万座毛" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                琉球國王尚敬曾讚嘆「萬人可坐之草原」。天然隆起的珊瑚礁形成的經典「象鼻岩」，峭壁下方是激盪的海浪與遼闊東海。新落成的萬座毛周邊設施設有餐廳、伴手禮店與乾淨步道，門票 100 日圓。
+                            </p>
+                        </div>
+
+                        <!-- 行程節點 2 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#A8D3E6] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">残波岬燈塔 (Zampa Misaki)</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 岬角 24H ｜ 登塔 09:00-16:30</span>
+                                    <span class="mapcode-badge">MapCode: 1005 685 296*71</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=残波岬灯台" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                沖繩本島最西端的斷崖絕景！高達 30 公尺的綿延白色珊瑚斷崖，座落著全沖繩最高、也是全日本少數可攀登的白色大型燈塔。若天氣晴朗登頂，可眺望慶良間諸島。
+                            </p>
+                        </div>
+
+                        <!-- 行程節點 3 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F2A497] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">3</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">美國村 (American Village) 逛街與入住飯店</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 街區 24H ｜ 商場 10:00-22:00</span>
+                                    <span class="mapcode-badge">MapCode: 33 526 450*63</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=美浜アメリカンビレッジ" target="_blank" rel="noopener noreferrer"
+   title="美國村導航" aria-label="美國村導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=北谷サンセットビーチ" target="_blank" rel="noopener noreferrer"
+   title="落日海灘導航" aria-label="落日海灘導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFF3F0] hover:bg-[#F2A497] text-[#F59E0B] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-sun"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                美式復古霓虹燈招牌、歐風紅磚建築與異國情調商圈！先至美國村飯店（如 Vessel Hotel / Lequ Okinawa 等）Check-in 停好車，下午輕鬆漫步落日海灘（Sunset Beach），傍晚欣賞夕陽，晚上逛街品嚐美式漢堡、飯糰或迴轉壽司。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------------- DAY 4 ---------------- -->
+                <div id="day-4" class="day-panel hidden space-y-6">
+                    <div class="ehon-card p-6 bg-[#F3FAF0]">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="ehon-badge bg-[#B9DAA5]">1/26 (二) · 第四天</span>
+                                <h2 class="text-xl sm:text-2xl font-black text-[#3E3A39]">
+                                    世界文化遺產石城與沖繩最大巨型商場血拼
+                                </h2>
+                                <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center gap-1.5 flex-wrap pt-0.5">
+                                    <span class="bg-white/90 px-2 py-0.5 rounded-lg border border-[#3E3A39]/30 text-[#3E3A39]">📍 今日動線</span>
+                                    <span>中城城跡登高遠眺 ➔ AEON MALL 沖繩來客夢 (水族箱/專櫃/美食街) ➔ 連宿美國村</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-white border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🚗 中部購物日</span>
+                                <span class="bg-[#F2A497] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🏨 連宿美國村</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 行程節點 1 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#B9DAA5] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">1</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">中城城跡 (Nakagusuku Castle Ruins)</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 08:30 - 17:00 (最終售票 16:30)</span>
+                                    <span class="mapcode-badge">MapCode: 33 411 551*33</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=中城城跡" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                列名聯合國教科文組織世界文化遺產！琉球名將護佐丸修築的堅固城池，優美的琉球石灰岩弧形城牆保存極為完好。地勢居高臨下，可同時遠眺中城灣太平洋與東海兩側海岸線。園區提供免費電動高爾夫球車接駁至頂點。
+                            </p>
+                        </div>
+
+                        <!-- 行程節點 2 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">AEON MALL 沖繩來客夢 (Rycom) 全日暢購與晚餐</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-22:00 ｜ 超市 07:00-23:00</span>
+                                    <span class="mapcode-badge">MapCode: 33 530 406*45</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=イオンモール沖縄ライカム" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                沖繩規模最大、品牌最齊全的旗艦級巨型購物中心！擁有超過 200 間專門店。1樓中庭矗立著 100 噸的巨型海水熱帶水族箱「Rycom Aquarium」，是拍照打卡亮點。
+                            </p>
+                            <div class="p-4 bg-[#FFFBEB] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 space-y-1.5">
+                                <p class="text-[#3E3A39] font-black">🛍️ 必逛專櫃與推薦：</p>
+                                <p>• <span class="text-[#3E3A39] font-black">潮流流行</span>：UNIQLO、GU、Bic Camera 電器行、GAP、H&M、Mont-bell 戶外登山用品。</p>
+                                <p>• <span class="text-[#3E3A39] font-black">親子動漫</span>：寶可夢專賣店 (Pokemon Center Okinawa)、玩具反斗城、橡子共和國 (吉卜力)。</p>
+                                <p>• 美食街集合沖繩蕎麥麵、牛排、拉麵、牛角燒肉等各國美食，吃飽喝足開車回美國村飯店。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------------- DAY 5 ---------------- -->
+                <div id="day-5" class="day-panel hidden space-y-6">
+                    <div class="ehon-card p-6 bg-[#FFF3F0]">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="ehon-badge bg-[#F2A497]">1/27 (三) · 第五天</span>
+                                <h2 class="text-xl sm:text-2xl font-black text-[#3E3A39]">
+                                    海景購物、復古文青街與超沉浸數位光影藝術
+                                </h2>
+                                <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center gap-1.5 flex-wrap pt-0.5">
+                                    <span class="bg-white/90 px-2 py-0.5 rounded-lg border border-[#3E3A39]/30 text-[#3E3A39]">📍 今日動線</span>
+                                    <span>浦添西海岸 PARCO CITY ➔ 港川外人住宅街 (水果塔) ➔ 沖繩 teamLab 未來園 ➔ 宿那霸</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-white border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🚗 南下轉移</span>
+                                <span class="bg-[#B9DAA5] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🏨 宿那霸飯店</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 行程節點 1 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#A8D3E6] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">1</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">SAN-A 浦添西海岸 PARCO CITY</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-22:00 ｜ 超市 09:00-23:00</span>
+                                    <span class="mapcode-badge">MapCode: 33 339 030*25</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=サンエー浦添西海岸+PARCO+CITY" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                緊鄰浦添西海岸的大型海景商場！擁有超過 250 家店鋪，包括全沖繩最大的無印良品 MUJI、Loft 生活雜貨、知名日系美妝專櫃與流行服飾。美食街擁有一整排面朝蔚藍大海的高腳座位，景緻極佳。
+                            </p>
+                        </div>
+
+                        <!-- 行程節點 2 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">港川外人住宅街 (Minatogawa Stateside Town)</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 各店約 11:00-18:00 ｜ 水果塔 11:30-18:00</span>
+                                    <span class="mapcode-badge">MapCode: 33 341 035*34</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=港川外人住宅街" target="_blank" rel="noopener noreferrer"
+   title="住宅街導航" aria-label="住宅街導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                原為美軍眷屬宿舍社區，平房街區以美國州名命名（如 Nevada、Florida 等）。現改建為文青雜貨舖、手作麵包店與獨立咖啡館。
+                            </p>
+                            <div class="p-3 bg-[#FFF3F0] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 flex items-center justify-between flex-wrap gap-2">
+                                <div>
+                                    🍰 必吃名店：<span class="text-[#3E3A39] font-black">oacacorte 水果塔專賣店</span>，天然酥脆塔皮搭配當季水果，極受歡迎！
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=oacacorte+港川店" target="_blank" rel="noopener noreferrer"
+                                   class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-[#3E3A39] bg-white hover:bg-[#F2A497] text-[#3E3A39] font-black text-xs transition-all">
+                                    <i class="fa-solid fa-cake-candles text-[#E11D48]"></i>
+                                    <span>水果塔導航</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 3 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F2A497] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">3</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">沖繩 teamLab 未來園 ➔ 那霸飯店 Check-in</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 10:00 - 20:00 (最終入場 19:00)</span>
+                                    <span class="text-xs font-black bg-[#F0F8FC] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">傍晚 / 晚上</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=teamLab+Future+Park+Okinawa" target="_blank" rel="noopener noreferrer"
+   title="teamLab 導航" aria-label="teamLab 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#8B5CF6] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-wand-magic-sparkles"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                沉浸在結合光影與互動創意的「teamLab 未來園」！親手塗鴉的海洋生物會即時游入巨型數位水族投影壁面，大人小孩都驚喜連連。結束後入住那霸飯店，展開市區生活。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------------- DAY 6 ---------------- -->
+                <div id="day-6" class="day-panel hidden space-y-6">
+                    <div class="ehon-card p-6 bg-[#F0F8FC]">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="ehon-badge bg-[#A8D3E6]">1/28 (四) · 第六天</span>
+                                <h2 class="text-xl sm:text-2xl font-black text-[#3E3A39]">
+                                    30萬年鐘乳石奇境、知念岬、齋場御嶽與南城物產巡禮
+                                </h2>
+                                <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center gap-1.5 flex-wrap pt-0.5">
+                                    <span class="bg-white/90 px-2 py-0.5 rounded-lg border border-[#3E3A39]/30 text-[#3E3A39]">📍 今日動線</span>
+                                    <span>沖繩世界文化王國 (玉泉洞/太鼓秀) ➔ 知念岬公園 ➔ 齋場御嶽 ➔ 南城市地域物產館 ➔ 傍晚那霸市區還車</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-[#F2A497] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🚗 自駕最終日 (傍晚還車)</span>
+                                <span class="bg-white border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🏨 宿那霸飯店</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 行程節點 1 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#A8D3E6] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">1</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">沖繩世界文化王國・玉泉洞 (Okinawa World)</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 09:00 - 17:30 (最終入園 16:00)</span>
+                                    <span class="mapcode-badge">MapCode: 232 495 330*28</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=おきなわワールド+玉泉洞" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                擁有 30 萬年歲月打造的東洋第一大鐘乳石洞「玉泉洞」，全長 5 公里（開放 890 公尺步道），內有超過 100 萬根壯觀石筍石柱。走出洞穴後可欣賞傳統琉球古民家工藝村、親手體驗玻璃吹製，並觀看震撼的「傳統太鼓 Eisa 齊奏舞表演」！
+                            </p>
+                        </div>
+
+                        <!-- 行程節點 2 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#B9DAA5] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">知念岬公園 (Chinen Misaki Park)</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 24 小時全天開放 (免費入場)</span>
+                                    <span class="mapcode-badge">MapCode: 232 594 503*30</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=知念岬公園" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                沖繩南部視野最壯麗的綠意海岬公園！凸出的心型半島步道，擁有 250 度海天一色無死角景觀，遠眺久高島（神之島），微風徐徐，是絕佳的拍照休憩點。
+                            </p>
+                        </div>
+
+                        <!-- 行程節點 3 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">3</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">齋場御嶽 (Sefa Utaki) 琉球最高聖地</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 09:00 - 17:30 (最終售票 16:45)</span>
+                                    <span class="mapcode-badge">MapCode: 232 594 734*44</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=斎場御嶽" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                琉球王國第一聖地，登錄為世界文化遺產。穿過茂密原始森林，最知名的「三庫理（Sanguui）」由兩塊巨大岩石天然交疊成三角隧道，相傳為神明降臨之處，充滿寧靜肅穆靈氣。
+                            </p>
+                        </div>
+
+                        <!-- 行程節點 4 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F2A497] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">4</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">南城市地域物產館 (Nanjo Regional Product Center)</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 09:00 - 18:00 (全年無休)</span>
+                                    <span class="mapcode-badge">MapCode: 232 594 734*44</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=南城市地域物産館" target="_blank" rel="noopener noreferrer"
+   title="南城市地域物產館 Google 導航" aria-label="南城市地域物產館 Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-store"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                位於齋場御嶽停車場入口處！館內販售南城市專屬特色名產、天然沖繩黑糖、熱帶水果汁與吉祥物「楠楠爺爺（Nanji）」周邊商品。2 樓設有海景露台與餐廳，可在此邊品嚐冰淇淋邊眺望久高島與太平洋絕景，自駕回那霸前在此吹冷氣休息採買最愜意。
+                            </p>
+                        </div>
+
+                        <!-- 行程節點 5 (還車關鍵) -->
+                        <div class="ehon-card p-6 bg-[#FFFBEB] space-y-3 border-2 border-[#F6D27A]">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-2xl">🔑</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">傍晚：那霸市區營業所「滿油還車手續」</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 營業所通常營運至 20:00</span>
+                                    <span class="text-xs font-black bg-[#F6D27A] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">自駕圓滿落幕</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=那覇市+レンタカー" target="_blank" rel="noopener noreferrer"
+   title="還車點導航" aria-label="還車點導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-white hover:bg-[#F6D27A] text-[#2563EB] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-car"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                開車回那霸市區，於營業所附近的指定加油站將油箱加滿 Regular 汽油並索取收據。完成外觀驗車、結算 ETC 費用。自駕任務順利完成！隨後搭乘單軌電車或步行回飯店，今晚可輕鬆在國際通居酒屋舉杯慶祝。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------------- DAY 7 ---------------- -->
+                <div id="day-7" class="day-panel hidden space-y-6">
+                    <div class="ehon-card p-6 bg-[#FFFBEB]">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="ehon-badge bg-[#F6D27A]">1/29 (五) · 第七天</span>
+                                <h2 class="text-xl sm:text-2xl font-black text-[#3E3A39]">
+                                    科技沉浸水族館生態探險與大型濱海購物中心
+                                </h2>
+                                <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center gap-1.5 flex-wrap pt-0.5">
+                                    <span class="bg-white/90 px-2 py-0.5 rounded-lg border border-[#3E3A39]/30 text-[#3E3A39]">📍 今日動線</span>
+                                    <span>DMM Kariyushi 水族館 (透明玻璃水槽/水獺企鵝) ➔ iias 沖繩豐崎 ➔ 美麗SUN海灘 ➔ 宿那霸</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-white border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🚝/🚌 大眾運輸＋計程車</span>
+                                <span class="bg-[#B9DAA5] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🏨 宿那霸飯店</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 行程節點 1 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#A8D3E6] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">1</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">DMM Kariyushi 水族館 (科技互動體驗)</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 09:00 - 20:00 (最終入館 19:00)</span>
+                                    <span class="text-xs font-black bg-[#F0F8FC] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">上午 / 中午</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=DMMかりゆし水族館" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                結合沉浸式影像音效與真實生態的新形態水族館！站在全透明的強化玻璃地板上方，俯瞰大型水槽中鯊魚從腳下悠游；展區內還可近距離觀察可愛的樹懶、水豚、企鵝與巨嘴鳥。
+                            </p>
+                            <div class="p-3 bg-[#F0F8FC] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700">
+                                🚌 交通方式：從那霸旭橋巴士總站（那霸公車總站）搭乘直達路線公車（約 30 分鐘）直達「iias 沖繩豐崎」正門下車即可。
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 2 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">iias 沖繩豐崎 (iias Okinawa Toyosaki) 商場散步</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-21:00 ｜ 餐廳至 22:00</span>
+                                    <span class="text-xs font-black bg-[#FFFBEB] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">下午 / 傍晚</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=イーアス沖縄豊崎" target="_blank" rel="noopener noreferrer"
+   title="商場導航" aria-label="商場導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                與 DMM 水族館無縫直通的濱海大型購物中心！頂樓設有景觀燒烤露台，旁邊是豐崎美麗 SUN 海灘。商場內有 KOJIMA x Bic Camera 家電、各式日系生活雜貨、伴手禮店與豐富美食街。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------------- DAY 8 ---------------- -->
+                <div id="day-8" class="day-panel hidden space-y-6">
+                    <div class="ehon-card p-6 bg-[#F3FAF0]">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="ehon-badge bg-[#B9DAA5]">1/30 (六) · 第八天</span>
+                                <h2 class="text-xl sm:text-2xl font-black text-[#3E3A39]">
+                                    琉球王宮復興見學、達摩寺開運與琉球八社「沖宮」天燈山祈福
+                                </h2>
+                                <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center gap-1.5 flex-wrap pt-0.5">
+                                    <span class="bg-white/90 px-2 py-0.5 rounded-lg border border-[#3E3A39]/30 text-[#3E3A39]">📍 今日動線</span>
+                                    <span>首里城公園 (世界遺產正殿見學) ➔ 西來院達摩寺 (祈願開運) ➔ 奧武山公園・沖宮 (琉球八社/天燈山) ➔ 那霸國際通 (傍晚掃貨與居酒屋晚餐) ➔ 宿那霸</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-white border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🚝 單軌一日暢遊</span>
+                                <span class="bg-[#B9DAA5] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">🏨 宿那霸飯店</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 行程節點 1 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">1</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">首里城公園 (Shurijo Castle Park) 世界遺產正殿復興見學</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 免費區 08:30-18:00 ｜ 正殿見學 09:00-17:30</span>
+                                    <span class="text-xs font-black bg-[#FFFBEB] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">上午</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=首里城公園" target="_blank" rel="noopener noreferrer"
+   title="Google 導航" aria-label="Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                搭乘單軌至首里站，步行或搭乘接駁車穿過守禮門與歡會門。首里城是琉球王國歷代統治的核心宮殿。目前園區正進行壯麗的正殿重建復原工程見學（木骨架搭建展現古代木工藝結晶），現場展出重建工坊與城郭歷史遺構。
+                            </p>
+                            <div class="p-3 bg-[#F3FAF0] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700">
+                                🍦 首里必吃：金城町石疊道附近的琉球傳統茶點或 Blue Seal 紅芋冰淇淋。
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 2 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#B9DAA5] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">西來院 達摩寺 (Sairai-in Daruma-dera) 開運必勝祈願</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 參拜 07:00-17:00 ｜ 御守受付 09:00-16:30</span>
+                                    <span class="text-xs font-black bg-[#FFF3F0] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">上午 / 中午</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=西来院+達磨寺" target="_blank" rel="noopener noreferrer"
+   title="西來院達摩寺 Google 導航" aria-label="西來院達摩寺 Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#DC2626] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-place-of-worship"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                從首里城步行約 10~15 分鐘即可抵達首里赤田町的「西來院 達摩寺」。這座創建於 1573 年的臨濟宗古剎，主祀達摩祖師與戌亥守護本尊阿彌陀如來，以保佑「安產、開運必勝、考試合格與健康長壽」聞名。參拜後可在首里老街品嚐經典首里蕎麥麵午餐。
+                            </p>
+                            <div class="bg-[#FFFBEB] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 space-y-1">
+                                <p class="text-[#3E3A39] font-black">🏮 達摩寺祈福特色：</p>
+                                <p>• 境內供奉滿滿鮮紅圓潤的達摩不倒翁像，可親自購買達摩開眼許願（心願達成後再點上另一隻眼）、收集特色達摩御守與朱印。</p>
+                                <p>• 寺院清幽古雅，是一座避開觀光人潮、深度體驗琉球信仰的私房開運秘境。</p>
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 3 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#A8D3E6] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">3</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">沖宮 (Okinogu) 奧武山公園能量聖殿 ＆ 天燈山散策</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 境內 24H ｜ 社務所御守 09:00-17:00</span>
+                                    <span class="text-xs font-black bg-[#F0F8FC] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">下午</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=沖宮" target="_blank" rel="noopener noreferrer"
+   title="沖宮 Google 導航" aria-label="沖宮 Google 導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#DC2626] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-torii-gate"></i>
+</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=奥武山公園" target="_blank" rel="noopener noreferrer"
+   title="奧武山公園導航" aria-label="奧武山公園導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#F3FAF0] hover:bg-[#B9DAA5] text-[#059669] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-tree"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                午後搭乘單軌自「首里站」直達「壺川站」（步行 3 分鐘）或「奧武山公園站」（步行 5 分鐘）。沖宮位列「琉球八社」之一，依傍著靈山「天燈山」而建。相傳古琉球國王曾見此山夜放金光，為歷史悠久的神聖御嶽能量場。
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs font-bold text-slate-700">
+                                <div class="bg-[#FFF3F0] p-3 rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                    <span class="text-[#3E3A39] font-black">🎋 天燈山頂古神域：</span>
+                                    <p>沿著後方清幽石階步道緩步登頂天燈山御嶽，視野開闊可俯瞰奧武山公園與市區景致，氣場清澈純淨，能沉澱心靈。</p>
+                                </div>
+                                <div class="bg-[#FFFBEB] p-3 rounded-xl border-2 border-[#3E3A39] space-y-1">
+                                    <span class="text-[#3E3A39] font-black">🔮 精美琉球紅型御守：</span>
+                                    <p>社務所提供極具特色的「沖繩紅型染花紋御守」、龍神弁財天御守、十二生肖開運籤，境內並設有清雅的喫茶處可稍作小憩。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 4 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F2A497] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">4</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">那霸國際通 (Kokusai Dori) 傍晚暢逛・伴手禮採購與琉球晚餐</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 各店約 10:00-22:00 ｜ 唐吉訶德 24H</span>
+                                    <span class="text-xs font-black bg-[#FFFBEB] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">下午 / 晚上</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=国際通り" target="_blank" rel="noopener noreferrer"
+   title="國際通導航" aria-label="國際通導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-location-dot"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                從沖宮（壺川站）搭乘單軌僅需 2 站（約 4 分鐘）即可抵達市中心「縣廳前」或「牧志站」，無縫漫步熱鬧非凡的國際通大街。全長 1.6 公里的商店街兩側林立著御菓子御殿（紅芋塔）、雪鹽菓房、唐吉訶德驚安殿堂、琉球文創選物店與各大藥妝店。
+                            </p>
+                            <div class="p-4 bg-[#FFFBEB] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 space-y-1.5">
+                                <p class="text-[#3E3A39] font-black">🍻 D8 晚餐推薦：國際通居酒屋與在地饗宴</p>
+                                <p>• 推薦前往熱鬧的居酒屋聆聽三線現場琴聲演奏，品嚐石垣牛牛排、炭烤阿古豬、苦瓜炒豆腐與冰涼 Orion 生啤酒！</p>
+                                <p>• 晚上回飯店整理大行李箱，將採購戰利品妥善裝箱。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------------- DAY 9 ---------------- -->
+                <div id="day-9" class="day-panel hidden space-y-6">
+                    <div class="ehon-card p-6 bg-[#FFF3F0]">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="ehon-badge bg-[#F2A497]">1/31 (日) · 第九天</span>
+                                <h2 class="text-xl sm:text-2xl font-black text-[#3E3A39]">
+                                    斷崖海景聖殿祈福・國際通精選午餐與滿載返航
+                                </h2>
+                                <p class="text-xs sm:text-sm font-bold text-slate-600 flex items-center gap-1.5 flex-wrap pt-0.5">
+                                    <span class="bg-white/90 px-2 py-0.5 rounded-lg border border-[#3E3A39]/30 text-[#3E3A39]">📍 今日動線</span>
+                                    <span>波上宮參拜求御守 ➔ 波之上海灘散步 ➔ 國際通排隊名店午餐與最後補貨 ➔ 單軌電車直達那霸機場 ➔ 平安返台</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-white border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">⛩️ 祈福美味</span>
+                                <span class="bg-[#F2A497] border-2 border-[#3E3A39] text-[#3E3A39] text-xs font-black px-3 py-1 rounded-xl">✈️ 搭機回台</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 行程節點 1 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F2A497] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">1</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">波上宮 (Naminoue Shrine) 參拜 & 波之上海灘踏浪</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 境內 24H ｜ 社務所御守 09:00-17:00</span>
+                                    <span class="text-xs font-black bg-[#FFF3F0] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">上午</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=波上宮" target="_blank" rel="noopener noreferrer"
+   title="波上宮導航" aria-label="波上宮導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#DC2626] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-torii-gate"></i>
+</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=波の上ビーチ" target="_blank" rel="noopener noreferrer"
+   title="海灘導航" aria-label="海灘導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#F0F8FC] hover:bg-[#A8D3E6] text-[#0284C7] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-water"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                琉球八社之首！座落於珊瑚礁斷崖上的壯麗紅色神社，是那霸最著名靈氣之地。在此參拜祈求回程飛行平安、求取極具人氣的特色「小書包交通安全御守」與琉球風御守。參拜完走下石階即可漫步波之上海灘，感受最後的海風與冬陽。
+                            </p>
+                        </div>
+
+                        <!-- 行程節點 2 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#F6D27A] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">2</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">國際通 (Kokusai Dori) 馳名在地午餐 ＆ 伴手禮最後衝刺</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 午餐時段約 11:00-14:30 ｜ 店家約 10:00-22:00</span>
+                                    <span class="text-xs font-black bg-[#FFFBEB] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">中午</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=国際通り+グルメ" target="_blank" rel="noopener noreferrer"
+   title="國際通美食導航" aria-label="國際通美食導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#E11D48] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-utensils"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                從波上宮搭計程車或步行單軌前往國際通，享受回國前最後一頓道地沖繩午餐，並於各大伴手禮老舖作最後補貨！
+                            </p>
+                            <div class="p-4 bg-[#FFFBEB] rounded-xl border-2 border-[#3E3A39] text-xs font-bold text-slate-700 space-y-2">
+                                <p class="text-[#3E3A39] font-black">🍴 國際通人氣午餐名店推薦：</p>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-0.5">
+                                    <div class="p-2.5 rounded-lg bg-white border border-[#3E3A39]">
+                                        <span class="text-[#3E3A39] font-black">🍜 暖暮拉麵 / 琉家：</span>
+                                        濃郁豚骨湯頭配芝麻香蔥，熱騰騰超滿足。
+                                    </div>
+                                    <div class="p-2.5 rounded-lg bg-white border border-[#3E3A39]">
+                                        <span class="text-[#3E3A39] font-black">🥩 傑克牛排 (Jack's Steak)：</span>
+                                        那霸美式老牌鐵板紐約客牛排，軟嫩多汁。
+                                    </div>
+                                    <div class="p-2.5 rounded-lg bg-white border border-[#3E3A39]">
+                                        <span class="text-[#3E3A39] font-black">🥢 首里麵 / 牧志沖繩麵：</span>
+                                        清爽柴魚豚骨湯頭與三枚肉軟骨蕎麥麵。
+                                    </div>
+                                </div>
+                                <p class="text-slate-500 pt-1">• 飯後可把握時間購買御菓子御殿現烤紅芋塔、雪鹽金楚糕、石垣島辣油或南風堂辣蝦餅。</p>
+                            </div>
+                        </div>
+
+                        <!-- 行程節點 3 -->
+                        <div class="ehon-card p-6 space-y-3">
+                            <div class="flex items-center justify-between flex-wrap gap-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-full bg-[#A8D3E6] border-2 border-[#3E3A39] flex items-center justify-center text-sm font-black">3</span>
+                                    <h3 class="text-lg font-black text-[#3E3A39]">搭乘單軌直達那霸機場 ➔ 國內線免稅逛街 ➔ 登機返台</h3>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="time-badge"><i class="fa-regular fa-clock"></i> 國內線 06:30-20:30 ｜ 國際線依航班</span>
+                                    <span class="text-xs font-black bg-[#F0F8FC] border-2 border-[#3E3A39] px-2.5 py-1 rounded-lg">下午 / 傍晚</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=那覇空港+国内線旅客ターミナルビル" target="_blank" rel="noopener noreferrer"
+   title="機場導航" aria-label="機場導航"
+   class="spot-map-btn inline-flex items-center justify-center w-8 h-8 rounded-xl border-2 border-[#3E3A39] bg-[#FFFBEB] hover:bg-[#F6D27A] text-[#0284C7] text-sm shadow-[2px_2px_0px_#3E3A39] active:translate-x-0.5 active:translate-y-0.5 transition-all">
+    <i class="fa-solid fa-plane-departure"></i>
+</a>
+                                </div>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700 leading-relaxed">
+                                回飯店取行李，搭乘 Yui Rail 單軌電車直達終點「那霸機場站」（車程僅約 13~15 分鐘）。提早 2.5 小時至國際線櫃檯辦理報到與行李托運。托運後可前往國內線 2 樓商店街作最後逛街或享用著名的「豬肉蛋飯糰 (Potama)」，心滿意足搭機返台！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             分頁 3：自駕與交通寶典 (TRANSPORT)
+             ========================================================================= -->
+        <section id="transport" class="tab-content space-y-8">
+            <div class="bg-[#A8D3E6] border-[3px] border-[#3E3A39] rounded-[28px] p-6 sm:p-8 shadow-[5px_5px_0px_#3E3A39]">
+                <h2 class="text-2xl sm:text-3xl font-black text-[#3E3A39] flex items-center gap-2">
+                    <span>🚗</span> 沖繩自駕與大眾運輸完全指南
+                </h2>
+                <p class="text-xs sm:text-sm font-bold text-[#3E3A39] mt-1">
+                    涵蓋 1/23~1/28 租還車流程、MapCode 速查、高速公路收費與單軌電車使用攻略
+                </p>
+            </div>
+
+            <!-- MapCode 速查表格 -->
+            <div class="ehon-card p-6 sm:p-8 space-y-4">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                    <h3 class="text-xl font-black text-[#3E3A39] flex items-center gap-2">
+                        <span>📍</span> 全行程核心景點 MapCode 速查卡
+                    </h3>
+                    <span class="text-xs font-bold bg-[#FEF3C7] px-2.5 py-1 rounded-lg border-2 border-[#3E3A39] text-[#92400E]">
+                        輸入導航直接出發
+                    </span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm font-bold">
+                        <thead>
+                            <tr class="bg-[#FFFCF6] border-b-2 border-[#3E3A39] text-[#3E3A39]">
+                                <th class="p-3 border-2 border-[#3E3A39]">天數</th>
+                                <th class="p-3 border-2 border-[#3E3A39]">景點 / 地標名稱</th>
+                                <th class="p-3 border-2 border-[#3E3A39]">MapCode / 電話</th>
+                                <th class="p-3 border-2 border-[#3E3A39]">停車資訊</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y-2 divide-[#3E3A39]">
+                            <tr class="bg-[#FFFBEB]">
+                                <td class="p-3 border-2 border-[#3E3A39]">D1</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">恩納之驛休憩市場</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">206 096 797*74</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">專用免費大型停車場 (海鮮小吃午餐)</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="p-3 border-2 border-[#3E3A39]">D1</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">部瀨名海中公園</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">206 442 075*11</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">附設免費大型停車場</td>
+                            </tr>
+                            <tr class="bg-[#F0F8FC]">
+                                <td class="p-3 border-2 border-[#3E3A39]">D2</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">美麗海水族館</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">553 075 797*77</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">P7 立體停車場（免費）</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="p-3 border-2 border-[#3E3A39]">D2</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">古宇利大橋南端展望所</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">485 662 041*33</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">橋頭免費小型停車場</td>
+                            </tr>
+                            <tr class="bg-[#FFFBEB]">
+                                <td class="p-3 border-2 border-[#3E3A39]">D2</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">古宇利海洋塔</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">485 693 485*00</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">專用免費停車場</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="p-3 border-2 border-[#3E3A39]">D2</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">心型石 (古宇利島)</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">485 751 179</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">收費停車場 (100-300円)</td>
+                            </tr>
+                            <tr class="bg-[#F3FAF0]">
+                                <td class="p-3 border-2 border-[#3E3A39]">D3</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">萬座毛</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">206 312 038*55</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">遊客中心免費停車場</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="p-3 border-2 border-[#3E3A39]">D3</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">残波岬燈塔</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">1005 685 296*71</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">岬角免費停車場</td>
+                            </tr>
+                            <tr class="bg-[#FFF3F0]">
+                                <td class="p-3 border-2 border-[#3E3A39]">D3-D4</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">美國村 (北谷町)</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">33 526 450*63</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">村內多座大型免費停車場</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="p-3 border-2 border-[#3E3A39]">D4</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">中城城跡</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">33 411 551*33</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">正門免費停車場</td>
+                            </tr>
+                            <tr class="bg-[#F0F8FC]">
+                                <td class="p-3 border-2 border-[#3E3A39]">D4</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">AEON MALL 沖繩來客夢</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">33 530 406*45</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">4,000台免費停車場</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="p-3 border-2 border-[#3E3A39]">D5</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">PARCO CITY 浦添</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">33 339 030*25</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">全天免費停車場</td>
+                            </tr>
+                            <tr class="bg-[#FFFBEB]">
+                                <td class="p-3 border-2 border-[#3E3A39]">D6</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">沖繩世界文化王國 (玉泉洞)</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">232 495 330*28</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">免費大型停車場</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="p-3 border-2 border-[#3E3A39]">D6</td>
+                                <td class="p-3 border-2 border-[#3E3A39]">知念岬公園 / 齋場御嶽 / 南城市地域物產館</td>
+                                <td class="p-3 border-2 border-[#3E3A39]"><span class="mapcode-badge">232 594 734*44</span></td>
+                                <td class="p-3 border-2 border-[#3E3A39]">南城市地域物產館大型免費停車場</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 自駕租還必讀提醒 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="ehon-card p-6 bg-[#FFF3F0] space-y-3">
+                    <h4 class="font-black text-base text-[#3E3A39] flex items-center gap-2">
+                        <span>🚦</span> 日本自駕核心交通常識
+                    </h4>
+                    <ul class="list-disc list-inside text-xs font-bold text-slate-700 space-y-2">
+                        <li><span class="text-[#3E3A39] font-black">右轉大彎、左轉小彎</span>：右駕最易在轉彎後誤入對向車道，轉彎請緊貼正確車道行駛！</li>
+                        <li><span class="text-[#3E3A39] font-black">「止まれ (STOP)」標誌必完全靜止</span>：遇到倒三角形紅色標誌，輪胎必須完全靜止停止 3 秒，左右確認無車才能起步。</li>
+                        <li><span class="text-[#3E3A39] font-black">行人優先</span>：綠燈右轉遇斑馬線有行人通行，必須停車禮讓。</li>
+                        <li><span class="text-[#3E3A39] font-black">速限嚴格遵守</span>：一般市區道通常 40~50 km/h，高速公路 80 km/h（部分路段 100 km/h）。</li>
+                    </ul>
+                </div>
+
+                <div class="ehon-card p-6 bg-[#F0F8FC] space-y-3">
+                    <h4 class="font-black text-base text-[#3E3A39] flex items-center gap-2">
+                        <span>🚝</span> 那霸單軌電車 (Yui Rail) 乘車守則
+                    </h4>
+                    <ul class="list-disc list-inside text-xs font-bold text-slate-700 space-y-2">
+                        <li><span class="text-[#3E3A39] font-black">營運路線</span>：貫穿那霸機場 ➔ 赤嶺 ➔ 旭橋 ➔ 縣廳前 (國際通) ➔ 牧志 ➔ おもろまち (新都心) ➔ 首里 ➔ 浦添前田。</li>
+                        <li><span class="text-[#3E3A39] font-black">一日券超划算</span>：成人 800 日圓 / 兒童 400 日圓，從購票刷卡起算 <span class="text-[#3E3A39] font-black underline">完整 24 小時</span> 有效，搭 3~4 次即回本！</li>
+                        <li><span class="text-[#3E3A39] font-black">支援交通 IC 卡</span>：可直接感應 Suica (西瓜卡)、ICOCA，免去排隊買票。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             分頁 4：景點商場攻略 (SHOPPING & GOURMET)
+             ========================================================================= -->
+        <section id="shopping" class="tab-content space-y-8">
+            <div class="bg-[#B9DAA5] border-[3px] border-[#3E3A39] rounded-[28px] p-6 sm:p-8 shadow-[5px_5px_0px_#3E3A39]">
+                <h2 class="text-2xl sm:text-3xl font-black text-[#3E3A39] flex items-center gap-2">
+                    <span>🛍️</span> 沖繩商場與在地美食私房指南
+                </h2>
+                <p class="text-xs sm:text-sm font-bold text-[#3E3A39] mt-1">
+                    精選 AEON MALL 來客夢、PARCO CITY、美國村與國際通精華攻略
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- AEON MALL 沖繩來客夢 -->
+                <div class="ehon-card p-6 bg-white space-y-4">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h3 class="text-lg font-black text-[#3E3A39]">🏢 AEON MALL 沖繩來客夢</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-22:00</span>
+                            <span class="ehon-badge bg-[#F6D27A]">全沖繩最大</span>
+                        </div>
+                    </div>
+                    <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                        擁有大型熱帶水槽與 200 多家專櫃。戶外露台綠意盎然，是全家購物首選！
+                    </p>
+                    <div class="bg-[#FFFBEB] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1">
+                        <p class="text-[#3E3A39] font-black">必逛品牌陣容：</p>
+                        <p>• 1F：大型水族箱、Bic Camera 電器量販、橡子共和國</p>
+                        <p>• 2F：Pokemon Center Okinawa (沖繩限定皮卡丘)、H&M、GAP</p>
+                        <p>• 3F：UNIQLO、GU、生活雜貨、兒童玩具反斗城</p>
+                        <p>• 4F：戶外露營用品 Mont-bell、美食街 (Rycom Gourmet World)</p>
+                    </div>
+                </div>
+
+                <!-- 浦添 PARCO CITY -->
+                <div class="ehon-card p-6 bg-white space-y-4">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h3 class="text-lg font-black text-[#3E3A39]">🏢 浦添西海岸 PARCO CITY</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 專門店 10:00-22:00</span>
+                            <span class="ehon-badge bg-[#A8D3E6]">海景購物</span>
+                        </div>
+                    </div>
+                    <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                        坐擁無敵海景的最新型大型商場，集結超多初次登陸沖繩的日系人氣品牌與餐廳！
+                    </p>
+                    <div class="bg-[#F0F8FC] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1">
+                        <p class="text-[#3E3A39] font-black">必逛亮點精選：</p>
+                        <p>• 全沖繩最大「無印良品 MUJI」旗艦店（含刺繡服務與生鮮品）</p>
+                        <p>• Loft 文具生活雜貨、3COINS+plus</p>
+                        <p>• 2F 海景美食街（一邊享用敘敘苑燒肉便當、拉麵，一邊看海）</p>
+                        <p>• 3F 潮流服飾與電影院棟</p>
+                    </div>
+                </div>
+
+                <!-- 美國村 -->
+                <div class="ehon-card p-6 bg-white space-y-4">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h3 class="text-lg font-black text-[#3E3A39]">🎡 北谷美國村 (American Village)</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 店家約 10:00-22:00</span>
+                            <span class="ehon-badge bg-[#F2A497]">異國夕陽</span>
+                        </div>
+                    </div>
+                    <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                        色彩繽紛的美式街區，落日海灘被譽為沖繩落日第一景。傍晚街燈點亮後極為浪漫。
+                    </p>
+                    <div class="bg-[#FFF3F0] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1">
+                        <p class="text-[#3E3A39] font-black">不可錯過美食：</p>
+                        <p>• <span class="text-[#3E3A39] font-black">グルメ迴轉壽司市場</span>：極受歡迎的平價排隊握壽司名店</p>
+                        <p>• <span class="text-[#3E3A39] font-black">Chatan Burger Shop</span>：多汁厚實炭烤美式漢堡</p>
+                        <p>• <span class="text-[#3E3A39] font-black">ZHYVAGO COFFEE WORKS</span>：海景第一排文青手沖咖啡</p>
+                    </div>
+                </div>
+
+                <!-- 國際通 -->
+                <div class="ehon-card p-6 bg-white space-y-4">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h3 class="text-lg font-black text-[#3E3A39]">🌴 那霸國際通 (Kokusai Dori)</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="time-badge"><i class="fa-regular fa-clock"></i> 街區約 10:00-22:00</span>
+                            <span class="ehon-badge bg-[#B9DAA5]">奇蹟一哩</span>
+                        </div>
+                    </div>
+                    <p class="text-xs font-bold text-slate-600 leading-relaxed">
+                        那霸核心商圈，各式沖繩傳統樂器三線、風獅爺陶藝、藥妝店與土產伴手禮集中地。
+                    </p>
+                    <div class="bg-[#F3FAF0] p-3.5 rounded-xl border-2 border-[#3E3A39] text-xs font-bold space-y-1">
+                        <p class="text-[#3E3A39] font-black">必吃地道料理：</p>
+                        <p>• 沖繩蕎麥麵 (Soba)：軟嫩三枚肉或豬軟骨配濃郁柴魚豬骨湯</p>
+                        <p>• 石垣牛燒肉與阿古豬涮涮鍋：油花均勻、口感入口即化</p>
+                        <p>• 牧志公設市場：1樓挑選活海鮮龍蝦、夜光貝，2樓代客料理</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             分頁 5：行前清單管家 (CHECKLIST)
+             ========================================================================= -->
+        <section id="checklist" class="tab-content space-y-8">
+            <div class="bg-[#F6D27A] border-[3px] border-[#3E3A39] rounded-[28px] p-6 sm:p-8 shadow-[5px_5px_0px_#3E3A39]">
+                <h2 class="text-2xl sm:text-3xl font-black text-[#3E3A39] flex items-center gap-2">
+                    <span>✏️</span> 行前準備與行李打包清單管家
+                </h2>
+                <p class="text-xs sm:text-sm font-bold text-[#3E3A39] mt-1">
+                    點擊核取方塊即可即時自動儲存勾選進度（LocalStorage 本地記憶）
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 自駕必備證件 -->
+                <div class="ehon-card p-6 bg-[#FFFBEB] space-y-3">
+                    <h3 class="text-base font-black text-[#3E3A39] flex items-center gap-2">
+                        <span>🚘</span> 1. 自駕必帶核心證件 (遺漏無法取車！)
+                    </h3>
+                    <div class="space-y-2.5 pt-1 text-xs font-bold text-slate-700">
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>台灣護照正本 (有效期限 6 個月以上)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>台灣駕照正本 (不能過期，隨身攜帶正本)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>台灣駕照日文譯本正本 (監理所申辦之紙本正本)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>租車預約確認單 (紙本列印或手機 PDF 截圖)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>駕駛本人名義之信用卡 (租車押金及扣款使用)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 門票與重要文件 -->
+                <div class="ehon-card p-6 bg-[#F0F8FC] space-y-3">
+                    <h3 class="text-base font-black text-[#3E3A39] flex items-center gap-2">
+                        <span>🎫</span> 2. 票券預約與旅行文件
+                    </h3>
+                    <div class="space-y-2.5 pt-1 text-xs font-bold text-slate-700">
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>機票電子機票 (E-ticket) 存檔與列印</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>3 間飯店預約確認憑證 (名護 / 美國村 / 那霸)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>美麗海水族館線上門票 (Klook / KKday 優惠票)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>DMM Kariyushi 水族館 / teamLab 門票預約</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>Visit Japan Web 填寫入境與海關申報 QR Code</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 3C 與車用配件 -->
+                <div class="ehon-card p-6 bg-[#F3FAF0] space-y-3">
+                    <h3 class="text-base font-black text-[#3E3A39] flex items-center gap-2">
+                        <span>📱</span> 3. 3C 電子與自駕配備
+                    </h3>
+                    <div class="space-y-2.5 pt-1 text-xs font-bold text-slate-700">
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>日本上網 eSIM 或 實體 SIM 卡 (需維持穩定導航)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>車用手機支架 (冷氣出風口夾式，導航超方便)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>車充轉接頭與長版充電線 (維持手機電量)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>行動電源 (10,000mAh 以上，隨身登機禁托運)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>日規雙平腳充電插頭 (日本為 100V 雙平腳)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 1月冬日衣物與健康藥品 -->
+                <div class="ehon-card p-6 bg-[#FFF3F0] space-y-3">
+                    <h3 class="text-base font-black text-[#3E3A39] flex items-center gap-2">
+                        <span>🧥</span> 4. 冬日穿搭與隨身藥品
+                    </h3>
+                    <div class="space-y-2.5 pt-1 text-xs font-bold text-slate-700">
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>防風防潑水連帽外套 (海岸海風大必備)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>洋蔥式薄長袖、針織衫或連帽 T-shirt (9天份)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>舒適防滑好走的休閒運動鞋 (古城石階與海岬多步道)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>常備個人藥物 (感冒藥、腸胃藥、暈車藥、OK繃)</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-2 border-[#3E3A39] accent-[#3E3A39]">
+                            <span>海外旅遊平安保險 (含不便險及醫療緊急救助)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 頁尾 (和紙繪本風) -->
+    <footer class="bg-[#FFFCF6] border-t-[3px] border-[#3E3A39] py-8 text-center text-xs font-bold text-[#3E3A39]">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="text-base">🌺 Have an unforgettable Road Trip in Okinawa 2027! 🚙💨</p>
+        </div>
+    </footer>
+
+    <!-- 互動腳本 (支援分頁切換、天數切換與 Checkbox LocalStorage 記憶) -->
+    <script>
+        // 檢查是否偏好減少動態效果
+        function isReducedMotion() {
+            return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        }
+
+        // 切換主分頁
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            const target = document.getElementById(tabId);
+            if (target) target.classList.add('active');
+
+            // 桌面導航按鈕樣式更新
+            document.querySelectorAll('#nav-desktop button').forEach(btn => {
+                btn.className = "px-4 py-2 rounded-xl text-sm font-black border-2 border-[#3E3A39] bg-white transition-all hover:bg-[#FFF3F0]";
+            });
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.className = "px-4 py-2 rounded-xl text-sm font-black border-2 border-[#3E3A39] bg-white transition-all nav-btn-active";
+            }
+
+            window.scrollTo({ top: 0, behavior: isReducedMotion() ? 'auto' : 'smooth' });
+        }
+
+        // 手機版選單切換
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        // 切換每日行程子分頁 (D1 - D9)
+        function switchDay(dayNum) {
+            document.querySelectorAll('.day-panel').forEach(p => {
+                p.classList.add('hidden');
+                p.classList.remove('active');
+            });
+
+            const targetDay = document.getElementById('day-' + dayNum);
+            if (targetDay) {
+                targetDay.classList.remove('hidden');
+                // 重新觸發彈跳進場動畫 (若無開啟減少動態效果)
+                void targetDay.offsetWidth;
+                targetDay.classList.add('active');
+            }
+
+            // 更新按鈕樣式
+            document.querySelectorAll('.day-btn').forEach(btn => {
+                btn.classList.remove('day-btn-bounce');
+                btn.className = "day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] bg-white text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[2px_2px_0px_#3E3A39] hover:bg-[#F0F8FC]";
+            });
+
+            const activeDayBtn = document.getElementById('daybtn-' + dayNum);
+            if (activeDayBtn) {
+                // 依天數給予可愛跳色
+                const colorPalette = ['#F2A497', '#A8D3E6', '#F6D27A', '#B9DAA5', '#F2A497', '#A8D3E6', '#F6D27A', '#B9DAA5', '#F2A497'];
+                const selectedColor = colorPalette[(dayNum - 1) % colorPalette.length];
+                activeDayBtn.style.backgroundColor = selectedColor;
+                activeDayBtn.className = "day-btn shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-[3px] border-[#3E3A39] text-[#3E3A39] font-black flex flex-col items-center justify-center text-xs shadow-[4px_4px_0px_#3E3A39] scale-105 transition-all day-btn-bounce";
+            }
+
+            setTimeout(() => {
+                const itinerarySection = document.getElementById('itinerary');
+                if (itinerarySection) {
+                    const elementPosition = itinerarySection.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({
+                        top: elementPosition - 85,
+                        behavior: isReducedMotion() ? 'auto' : 'smooth'
+                    });
+                }
+            }, 60);
+        }
+
+        // 從總覽快速跳轉至指定天數
+        function jumpToDay(dayNum) {
+            switchTab('itinerary');
+            switchDay(dayNum);
+        }
+
+        // 行前清單 LocalStorage 儲存記憶
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+            checkboxes.forEach((cb, idx) => {
+                const storageKey = `okinawa_2027_check_${idx}`;
+                if (localStorage.getItem(storageKey) === 'true') {
+                    cb.checked = true;
+                }
+                cb.addEventListener('change', () => {
+                    localStorage.setItem(storageKey, cb.checked);
+                });
+            });
+
+            // 預設選中 D1
+            switchDay(1);
+        });
+    </script>
+</body>
+</html>
